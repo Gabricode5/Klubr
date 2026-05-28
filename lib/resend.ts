@@ -21,6 +21,7 @@ const templates: Record<EmailTemplate, (data: Record<string, string>) => string>
         Rejoindre la communauté
       </a>
       <p style="color:#666;font-size:12px;">Ce lien est valable 24h et à usage unique.</p>
+      ${data.referralLink ? `<p>Ton lien de parrainage personnel: <a href="${data.referralLink}">${data.referralLink}</a></p>` : ''}
     </div>
   `,
   cancelled: (data) => `
@@ -56,5 +57,26 @@ export async function sendEmail({ to, subject, template, data }: EmailPayload) {
     })
   } catch (error) {
     console.error('Erreur envoi email:', error)
+  }
+}
+
+export async function sendRawEmail({
+  to,
+  subject,
+  html,
+}: {
+  to: string
+  subject: string
+  html: string
+}) {
+  try {
+    await resend.emails.send({
+      from: 'CommunityPay <noreply@communitypay.fr>',
+      to,
+      subject,
+      html,
+    })
+  } catch (error) {
+    console.error('Erreur envoi email brut:', error)
   }
 }

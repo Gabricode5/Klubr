@@ -44,6 +44,13 @@ export interface SubscriptionPlan {
   created_at: string
 }
 
+export interface PlanCommunity {
+  id: string
+  plan_id: string
+  community_id: string
+  created_at: string
+}
+
 export interface Affiliate {
   id: string
   community_id: string
@@ -66,12 +73,25 @@ export interface Member {
   platform_user_id: string | null
   stripe_subscription_id: string | null
   stripe_customer_id: string | null
+  referral_code: string | null
+  referred_by_member_id: string | null
+  successful_referrals: number
   status: MemberStatus
+  churn_score: number | null
+  churn_score_updated_at: string | null
   current_period_start: string | null
   current_period_end: string | null
   bot_access_granted: boolean
   created_at: string
   updated_at: string
+}
+
+export interface MemberCommunityAccess {
+  id: string
+  member_id: string
+  community_id: string
+  granted_at: string
+  revoked_at: string | null
 }
 
 export interface Transaction {
@@ -90,14 +110,20 @@ export interface Transaction {
   created_at: string
 }
 
+export interface CreatorSettings extends Creator {
+  referral_reward_days: number
+}
+
 export type Database = {
   public: {
     Tables: {
       creators: { Row: Creator; Insert: Partial<Creator>; Update: Partial<Creator> }
       communities: { Row: Community; Insert: Partial<Community>; Update: Partial<Community> }
       subscription_plans: { Row: SubscriptionPlan; Insert: Partial<SubscriptionPlan>; Update: Partial<SubscriptionPlan> }
+      plan_communities: { Row: PlanCommunity; Insert: Partial<PlanCommunity>; Update: Partial<PlanCommunity> }
       affiliates: { Row: Affiliate; Insert: Partial<Affiliate>; Update: Partial<Affiliate> }
       members: { Row: Member; Insert: Partial<Member>; Update: Partial<Member> }
+      member_community_access: { Row: MemberCommunityAccess; Insert: Partial<MemberCommunityAccess>; Update: Partial<MemberCommunityAccess> }
       transactions: { Row: Transaction; Insert: Partial<Transaction>; Update: Partial<Transaction> }
     }
   }

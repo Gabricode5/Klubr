@@ -62,6 +62,7 @@ export async function createStripePrice(
 }
 
 export async function createCheckoutSession({
+  planId,
   priceId,
   connectedAccountId,
   platformFeePercent,
@@ -69,11 +70,13 @@ export async function createCheckoutSession({
   affiliateCode,
   baseUrl,
 }: {
+  planId: string
   priceId: string
   connectedAccountId: string
   platformFeePercent: number
   communitySlug: string
   affiliateCode?: string
+  referralCode?: string
   baseUrl: string
 }) {
   return stripe.checkout.sessions.create(
@@ -86,18 +89,35 @@ export async function createCheckoutSession({
       subscription_data: {
         application_fee_percent: platformFeePercent * 100,
         metadata: {
+          plan_id: planId,
           community_slug: communitySlug,
           affiliate_code: affiliateCode ?? '',
+          referral_code: referralCode ?? '',
         },
       },
       metadata: {
+        plan_id: planId,
         community_slug: communitySlug,
         affiliate_code: affiliateCode ?? '',
+        referral_code: referralCode ?? '',
       },
       automatic_tax: { enabled: true },
     },
     { stripeAccount: connectedAccountId }
   )
+}
+
+export async function extendSubscriptionByDays(subscriptionId: string, extraDays: number) {
+  const subscription = await stripe.subscriptions.retrieve(subscriptionId)
+  const now = Math.floor(Date.now() / 1000)
+  const currentEnd = subscription.current_period_end ?? now
+  const anchor = currentEnd > now ? currentEnd : now
+  const trialEnd = anchor + extraDays * 24 * 60 * 60
+
+  return stripe.subscriptions.update(subscriptionId, {
+    trial_end: trialEnd,
+    proration_behavior: 'none',
+  })
 }
 
 export function constructWebhookEvent(payload: string, signature: string) {

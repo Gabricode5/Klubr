@@ -4,7 +4,7 @@ import { PayPageClient } from '@/components/pay-page/pay-page-client'
 
 interface PageProps {
   params: { slug: string }
-  searchParams: { ref?: string }
+  searchParams: { ref?: string; r?: string }
 }
 
 export async function generateMetadata({ params }: PageProps) {
@@ -48,5 +48,36 @@ export default async function PayPage({ params, searchParams }: PageProps) {
     .eq('active', true)
     .order('price', { ascending: true })
 
-  return <PayPageClient community={community} plans={plans ?? []} affiliateCode={searchParams.ref} />
+  const planIds = (plans ?? []).map((plan) => plan.id)
+  let platformsByPlan: Record<string, string[]> = {}
+
+  if (planIds.length > 0) {
+    const { data: planCommunities } = await supabase
+      .from('plan_communities')
+      .select('plan_id, communities(platform)')
+      .in('plan_id', planIds)
+
+    platformsByPlan = (planCommunities ?? []).reduce<Record<string, string[]>>((acc, entry) => {
+      const planId = (entry as { plan_id: string }).plan_id
+      const platform = (entry as { communities: { platform: string } }).communities?.platform
+      if (!platform) return acc
+      const current = acc[planId] ?? []
+      if (!current.includes(platform)) {
+        acc[planId] = [...current, platform]
+      } else {
+        acc[planId] = current
+      }
+      return acc
+    }, {})
+  }
+
+  return (
+    <PayPageClient
+      community={community}
+      plans={plans ?? []}
+      affiliateCode={searchParams.ref}
+      referralCode={searchParams.r}
+      platformsByPlan={platformsByPlan}
+    />
+  )
 }

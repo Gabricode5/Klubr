@@ -35,6 +35,9 @@ npm run dev
 
 - `POST /api/subscriptions/checkout`
 - `POST /api/webhooks/stripe`
+- `POST /api/ai/churn-score`
+- `POST /api/ai/weekly-summary`
+- `GET /api/tax/report`
 
 ## Structure
 
@@ -43,3 +46,11 @@ npm run dev
 - `lib/` clients et intégrations Stripe/Supabase/Telegram/Resend
 - `types/` types partagés
 - `supabase/migrations/` schéma SQL
+
+## Nouveaux écrans (différenciants)
+
+- `app/dashboard/plans/new` plan multi-communautés
+- `app/dashboard/members` table membres + badge risque churn
+- `app/dashboard/fiscalite` TVA mensuelle + export CSV
+- `app/dashboard/settings/referral` config jours offerts par parrainage
+- `app/member/[referral_code]` page membre pour partager son lien

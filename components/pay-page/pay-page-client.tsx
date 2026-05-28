@@ -10,6 +10,8 @@ interface PayPageClientProps {
   community: Pick<Community, 'id' | 'name' | 'description' | 'cover_image_url' | 'platform' | 'slug'>
   plans: SubscriptionPlan[]
   affiliateCode?: string
+  referralCode?: string
+  platformsByPlan: Record<string, string[]>
 }
 
 const PLATFORM_LABELS: Record<string, string> = {
@@ -24,7 +26,13 @@ const INTERVAL_LABELS: Record<string, string> = {
   one_time: 'accès à vie',
 }
 
-export function PayPageClient({ community, plans, affiliateCode }: PayPageClientProps) {
+export function PayPageClient({
+  community,
+  plans,
+  affiliateCode,
+  referralCode,
+  platformsByPlan,
+}: PayPageClientProps) {
   const [loading, setLoading] = useState<string | null>(null)
 
   async function handleCheckout(planId: string) {
@@ -37,6 +45,7 @@ export function PayPageClient({ community, plans, affiliateCode }: PayPageClient
           planId,
           communitySlug: community.slug,
           affiliateCode,
+          referralCode,
         }),
       })
 
@@ -90,6 +99,15 @@ export function PayPageClient({ community, plans, affiliateCode }: PayPageClient
                   </div>
                 </div>
                 {plan.description && <CardDescription>{plan.description}</CardDescription>}
+                {!!platformsByPlan[plan.id]?.length && (
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {platformsByPlan[plan.id].map((platform) => (
+                      <Badge key={platform} variant="secondary">
+                        {PLATFORM_LABELS[platform] ?? platform}
+                      </Badge>
+                    ))}
+                  </div>
+                )}
               </CardHeader>
               <CardContent>
                 {plan.trial_days > 0 && (

@@ -1,0 +1,7 @@
+{
+  "crons": [
+    { "path": "/api/ai/churn-score", "schedule": "0 5 * * *" },
+    { "path": "/api/ai/weekly-summary", "schedule": "0 8 * * 1" },
+    { "path": "/api/tax/monthly-email", "schedule": "0 8 1 * *" }
+  ]
+}

@@ -7,12 +7,13 @@ const CheckoutSchema = z.object({
   planId: z.string().uuid(),
   communitySlug: z.string().min(1),
   affiliateCode: z.string().optional(),
+  referralCode: z.string().optional(),
 })
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json()
-    const { planId, communitySlug, affiliateCode } = CheckoutSchema.parse(body)
+    const { planId, communitySlug, affiliateCode, referralCode } = CheckoutSchema.parse(body)
 
     const supabase = createAdminClient()
 
@@ -44,11 +45,13 @@ export async function POST(req: NextRequest) {
     const baseUrl = process.env.NEXT_PUBLIC_APP_URL!
 
     const session = await createCheckoutSession({
+      planId: plan.id,
       priceId: plan.stripe_price_id,
       connectedAccountId: creator.stripe_account_id,
       platformFeePercent: creator.commission_rate,
       communitySlug,
       affiliateCode,
+      referralCode,
       baseUrl,
     })
 

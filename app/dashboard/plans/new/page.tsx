@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { createClient } from '@/lib/supabase'
 
 interface CommunityOption {
   id: string
@@ -8,97 +9,165 @@ interface CommunityOption {
   platform: string
 }
 
+const platformLabel: Record<string, string> = {
+  telegram: 'Telegram',
+  discord: 'Discord',
+  whatsapp: 'WhatsApp',
+}
+
 export default function NewPlanPage() {
-  const [creatorId, setCreatorId] = useState('')
+  const [userId, setUserId] = useState('')
   const [communities, setCommunities] = useState<CommunityOption[]>([])
   const [selected, setSelected] = useState<string[]>([])
-  const [message, setMessage] = useState('')
+  const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null)
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    async function run() {
-      if (!creatorId) return
-      const res = await fetch(`/api/creator/communities?creatorId=${creatorId}`)
-      const payload = (await res.json()) as { communities?: CommunityOption[] }
-      setCommunities(payload.communities ?? [])
-    }
-    run().catch(console.error)
-  }, [creatorId])
+    const supabase = createClient()
+    supabase.auth.getUser().then(({ data: { user } }) => {
+      if (user) {
+        setUserId(user.id)
+        fetch(`/api/creator/communities?creatorId=${user.id}`)
+          .then((r) => r.json())
+          .then((payload: { communities?: CommunityOption[] }) =>
+            setCommunities(payload.communities ?? [])
+          )
+          .catch(console.error)
+      }
+    })
+  }, [])
 
-  async function submit(formData: FormData) {
+  async function submit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setLoading(true)
+    setMessage(null)
+    const fd = new FormData(e.currentTarget)
     const payload = {
-      creatorId,
-      primaryCommunityId: (formData.get('primaryCommunityId') as string) || selected[0],
-      name: formData.get('name'),
-      description: formData.get('description'),
-      price: Number(formData.get('price')),
+      creatorId: userId,
+      primaryCommunityId: selected[0] ?? '',
+      name: fd.get('name'),
+      description: fd.get('description'),
+      price: Number(fd.get('price')),
       currency: 'eur',
-      interval: formData.get('interval'),
-      trialDays: Number(formData.get('trialDays') ?? 0),
+      interval: fd.get('interval'),
+      trialDays: Number(fd.get('trialDays') ?? 0),
       communityIds: selected,
     }
-
     const res = await fetch('/api/plans', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(payload),
     })
-    setMessage(res.ok ? 'Plan créé avec succès.' : 'Erreur de création du plan.')
+    setMessage(res.ok ? { type: 'success', text: 'Plan créé avec succès !' } : { type: 'error', text: 'Erreur lors de la création du plan.' })
+    setLoading(false)
   }
 
   return (
-    <main className="mx-auto max-w-2xl px-6 py-10">
-      <h1 className="text-2xl font-bold">Créer un plan multi-communautés</h1>
-      <p className="mt-2 text-sm text-gray-600">Sélectionne plusieurs groupes pour un même plan.</p>
+    <div className="p-8">
+      <div className="mb-8">
+        <h1 className="text-2xl font-bold text-slate-900">Créer un plan</h1>
+        <p className="mt-1 text-sm text-slate-500">Définissez un plan d'abonnement multi-communautés.</p>
+      </div>
 
-      <form
-        className="mt-6 space-y-4"
-        action={(fd) => {
-          submit(fd).catch(console.error)
-        }}
-      >
-        <input
-          className="w-full rounded border p-2"
-          placeholder="Creator ID"
-          value={creatorId}
-          onChange={(e) => setCreatorId(e.target.value)}
-        />
-        <input name="name" className="w-full rounded border p-2" placeholder="Nom du plan" required />
-        <input name="description" className="w-full rounded border p-2" placeholder="Description" />
-        <input name="price" type="number" className="w-full rounded border p-2" placeholder="Prix" required />
-        <select name="interval" className="w-full rounded border p-2" defaultValue="month">
-          <option value="month">Mensuel</option>
-          <option value="year">Annuel</option>
-          <option value="one_time">One-time</option>
-        </select>
-        <input name="trialDays" type="number" className="w-full rounded border p-2" placeholder="Jours d'essai" />
-
-        <div className="rounded border p-3">
-          <p className="mb-2 text-sm font-medium">Communautés incluses</p>
-          <div className="space-y-2">
-            {communities.map((community) => (
-              <label key={community.id} className="flex items-center gap-2 text-sm">
-                <input
-                  type="checkbox"
-                  checked={selected.includes(community.id)}
-                  onChange={(e) => {
-                    setSelected((prev) =>
-                      e.target.checked ? [...prev, community.id] : prev.filter((id) => id !== community.id)
-                    )
-                  }}
-                />
-                {community.name} ({community.platform})
-              </label>
-            ))}
+      <div className="max-w-2xl">
+        <form onSubmit={submit} className="space-y-5 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+          <div>
+            <label className="mb-1.5 block text-sm font-medium text-slate-700">Nom du plan</label>
+            <input
+              name="name"
+              required
+              placeholder="ex: Accès Premium"
+              className="w-full rounded-lg border border-slate-200 px-3 py-2.5 text-sm outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+            />
           </div>
-        </div>
+          <div>
+            <label className="mb-1.5 block text-sm font-medium text-slate-700">Description</label>
+            <input
+              name="description"
+              placeholder="ex: Accès illimité à tous nos groupes"
+              className="w-full rounded-lg border border-slate-200 px-3 py-2.5 text-sm outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+            />
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="mb-1.5 block text-sm font-medium text-slate-700">Prix (€)</label>
+              <input
+                name="price"
+                type="number"
+                min="0"
+                step="0.01"
+                required
+                placeholder="9.99"
+                className="w-full rounded-lg border border-slate-200 px-3 py-2.5 text-sm outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+              />
+            </div>
+            <div>
+              <label className="mb-1.5 block text-sm font-medium text-slate-700">Fréquence</label>
+              <select
+                name="interval"
+                defaultValue="month"
+                className="w-full rounded-lg border border-slate-200 px-3 py-2.5 text-sm outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+              >
+                <option value="month">Mensuel</option>
+                <option value="year">Annuel</option>
+                <option value="one_time">Paiement unique</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label className="mb-1.5 block text-sm font-medium text-slate-700">Jours d'essai gratuit</label>
+            <input
+              name="trialDays"
+              type="number"
+              min="0"
+              defaultValue="0"
+              className="w-full rounded-lg border border-slate-200 px-3 py-2.5 text-sm outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+            />
+          </div>
 
-        <input type="hidden" name="primaryCommunityId" value={selected[0] ?? ''} />
-        <button className="rounded bg-black px-4 py-2 text-white" type="submit">
-          Créer le plan
-        </button>
-      </form>
+          <div>
+            <label className="mb-2 block text-sm font-medium text-slate-700">Communautés incluses</label>
+            {communities.length === 0 ? (
+              <p className="text-sm text-slate-400">Aucune communauté trouvée pour votre compte.</p>
+            ) : (
+              <div className="space-y-2 rounded-lg border border-slate-200 p-3">
+                {communities.map((c) => (
+                  <label key={c.id} className="flex cursor-pointer items-center gap-3 rounded-lg p-2 hover:bg-slate-50">
+                    <input
+                      type="checkbox"
+                      className="h-4 w-4 rounded border-slate-300 text-indigo-600"
+                      checked={selected.includes(c.id)}
+                      onChange={(e) =>
+                        setSelected((prev) =>
+                          e.target.checked ? [...prev, c.id] : prev.filter((id) => id !== c.id)
+                        )
+                      }
+                    />
+                    <span className="text-sm text-slate-700">{c.name}</span>
+                    <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs text-slate-500">
+                      {platformLabel[c.platform] ?? c.platform}
+                    </span>
+                  </label>
+                ))}
+              </div>
+            )}
+          </div>
 
-      {message && <p className="mt-4 text-sm">{message}</p>}
-    </main>
+          {message && (
+            <div className={`rounded-lg px-3 py-2 text-sm ${message.type === 'success' ? 'bg-emerald-50 text-emerald-700' : 'bg-red-50 text-red-600'}`}>
+              {message.text}
+            </div>
+          )}
+
+          <button
+            type="submit"
+            disabled={loading || selected.length === 0}
+            className="w-full rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-indigo-700 disabled:opacity-50"
+          >
+            {loading ? 'Création en cours...' : 'Créer le plan'}
+          </button>
+        </form>
+      </div>
+    </div>
   )
 }

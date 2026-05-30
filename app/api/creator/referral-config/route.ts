@@ -1,20 +1,24 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
-import { createAdminClient } from '@/lib/supabase'
+import { createAdminClient, createServerSupabaseClient } from '@/lib/supabase-server'
 
 const Schema = z.object({
-  creatorId: z.string().uuid(),
   referralRewardDays: z.number().int().min(1).max(90),
 })
 
 export async function POST(req: NextRequest) {
   try {
-    const { creatorId, referralRewardDays } = Schema.parse(await req.json())
+    const userClient = await createServerSupabaseClient()
+    const { data: { user } } = await userClient.auth.getUser()
+    if (!user) return NextResponse.json({ error: 'Non autorisé' }, { status: 401 })
+
+    const { referralRewardDays } = Schema.parse(await req.json())
     const supabase = createAdminClient()
+
     const { error } = await supabase
       .from('creators')
       .update({ referral_reward_days: referralRewardDays })
-      .eq('id', creatorId)
+      .eq('id', user.id)
 
     if (error) {
       return NextResponse.json({ error: 'Update impossible' }, { status: 400 })

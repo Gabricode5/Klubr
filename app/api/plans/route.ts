@@ -1,9 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
-import { createAdminClient } from '@/lib/supabase'
+import { createAdminClient, createServerSupabaseClient } from '@/lib/supabase-server'
 
 const PlanSchema = z.object({
-  creatorId: z.string().uuid(),
   primaryCommunityId: z.string().uuid(),
   name: z.string().min(2),
   description: z.string().optional(),
@@ -16,8 +15,24 @@ const PlanSchema = z.object({
 
 export async function POST(req: NextRequest) {
   try {
+    const userClient = await createServerSupabaseClient()
+    const { data: { user } } = await userClient.auth.getUser()
+    if (!user) return NextResponse.json({ error: 'Non autorisé' }, { status: 401 })
+
     const body = PlanSchema.parse(await req.json())
     const supabase = createAdminClient()
+
+    // Vérifier que la communauté appartient à l'utilisateur connecté
+    const { data: community } = await supabase
+      .from('communities')
+      .select('id')
+      .eq('id', body.primaryCommunityId)
+      .eq('creator_id', user.id)
+      .single()
+
+    if (!community) {
+      return NextResponse.json({ error: 'Communauté introuvable ou accès refusé' }, { status: 403 })
+    }
 
     const { data: plan, error } = await supabase
       .from('subscription_plans')

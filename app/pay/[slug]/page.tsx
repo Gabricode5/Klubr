@@ -1,18 +1,19 @@
 import { notFound } from 'next/navigation'
-import { createAdminClient } from '@/lib/supabase'
+import { createAdminClient } from '@/lib/supabase-server'
 import { PayPageClient } from '@/components/pay-page/pay-page-client'
 
 interface PageProps {
-  params: { slug: string }
-  searchParams: { ref?: string; r?: string }
+  params: Promise<{ slug: string }>
+  searchParams: Promise<{ ref?: string; r?: string }>
 }
 
 export async function generateMetadata({ params }: PageProps) {
+  const { slug } = await params
   const supabase = createAdminClient()
   const { data: community } = await supabase
     .from('communities')
     .select('name, description, cover_image_url')
-    .eq('slug', params.slug)
+    .eq('slug', slug)
     .eq('active', true)
     .single()
 
@@ -30,12 +31,14 @@ export async function generateMetadata({ params }: PageProps) {
 }
 
 export default async function PayPage({ params, searchParams }: PageProps) {
+  const { slug } = await params
+  const { ref, r } = await searchParams
   const supabase = createAdminClient()
 
   const { data: community } = await supabase
     .from('communities')
     .select('id, name, description, cover_image_url, platform, slug')
-    .eq('slug', params.slug)
+    .eq('slug', slug)
     .eq('active', true)
     .single()
 
@@ -62,11 +65,7 @@ export default async function PayPage({ params, searchParams }: PageProps) {
       const platform = (entry as { communities: { platform: string } }).communities?.platform
       if (!platform) return acc
       const current = acc[planId] ?? []
-      if (!current.includes(platform)) {
-        acc[planId] = [...current, platform]
-      } else {
-        acc[planId] = current
-      }
+      acc[planId] = current.includes(platform) ? current : [...current, platform]
       return acc
     }, {})
   }
@@ -75,8 +74,8 @@ export default async function PayPage({ params, searchParams }: PageProps) {
     <PayPageClient
       community={community}
       plans={plans ?? []}
-      affiliateCode={searchParams.ref}
-      referralCode={searchParams.r}
+      affiliateCode={ref}
+      referralCode={r}
       platformsByPlan={platformsByPlan}
     />
   )

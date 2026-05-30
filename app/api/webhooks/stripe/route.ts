@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import type Stripe from 'stripe'
 import { constructWebhookEvent, calculateFees, extendSubscriptionByDays } from '@/lib/stripe'
-import { createAdminClient } from '@/lib/supabase'
+import { createAdminClient } from '@/lib/supabase-server'
 import { generateInviteLink, revokeMemberAccess } from '@/lib/telegram'
 import { sendEmail } from '@/lib/resend'
 

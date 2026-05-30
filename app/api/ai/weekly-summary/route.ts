@@ -1,14 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { askClaudeJson } from '@/lib/anthropic'
 import { sendRawEmail } from '@/lib/resend'
-import { createAdminClient } from '@/lib/supabase'
+import { createAdminClient } from '@/lib/supabase-server'
 
 type WeeklyEmail = { subject: string; html: string }
 
 export async function POST(req: NextRequest) {
   try {
-    const authHeader = req.headers.get('authorization')
-    if (process.env.CRON_SECRET && authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+    const secret = process.env.CRON_SECRET
+    if (!secret || req.headers.get('authorization') !== `Bearer ${secret}`) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 

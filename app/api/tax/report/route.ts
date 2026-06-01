@@ -27,7 +27,12 @@ export async function GET(req: NextRequest) {
     })
 
     const perCountry: Record<string, { tax: number; total: number; currency: string }> = {}
-    for (const transaction of transactions.data) {
+    for (const transaction of transactions.data as unknown as {
+      customer_details?: { address?: { country?: string } }
+      tax_amount_exclusive?: number
+      amount_total?: number
+      currency: string
+    }[]) {
       const country = transaction.customer_details?.address?.country ?? 'UNKNOWN'
       const tax = (transaction.tax_amount_exclusive ?? 0) / 100
       const total = (transaction.amount_total ?? 0) / 100

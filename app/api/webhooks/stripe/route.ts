@@ -268,7 +268,7 @@ export async function POST(req: NextRequest) {
           to: member.email,
           subject: `Ton accès à ${community?.name} a expiré`,
           template: 'cancelled',
-          data: { communityName: community?.name, communitySlug: community?.slug },
+          data: { communityName: community?.name ?? '', communitySlug: community?.slug ?? '' },
         })
 
         break

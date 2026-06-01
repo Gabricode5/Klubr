@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { NextRequest } from 'next/server'
+import type { NextRequest } from 'next/server'
 import { createSupabaseMock } from '../helpers/supabase-mock'
 
 vi.mock('@/lib/supabase-server', () => ({
@@ -21,12 +21,13 @@ const validBody = {
   platformId: '-100987654321',
 }
 
-function makeRequest(body: unknown) {
-  return new NextRequest('http://localhost/api/creator/communities/create', {
+function makeRequest(body: unknown): NextRequest {
+  return {
+    json: () => Promise.resolve(body),
+    headers: { get: () => null },
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body),
-  })
+    url: 'http://localhost/api/creator/communities/create',
+  } as unknown as NextRequest
 }
 
 function setupAuth(user: typeof mockUser | null) {

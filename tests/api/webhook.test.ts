@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import type Stripe from 'stripe'
-import { NextRequest } from 'next/server'
+import type { NextRequest } from 'next/server'
 import { createSupabaseMock } from '../helpers/supabase-mock'
 
 vi.mock('@/lib/supabase-server', () => ({
@@ -59,12 +59,14 @@ const mockMember = {
   platform_user_id: null,
 }
 
-function makeWebhookRequest(body: string, signature = 'valid-sig') {
-  return new NextRequest('http://localhost/api/webhooks/stripe', {
+function makeRequest(body: string, signature?: string): NextRequest {
+  const headers = new Map<string, string>()
+  if (signature) headers.set('stripe-signature', signature)
+  return {
+    text: () => Promise.resolve(body),
+    headers: { get: (key: string) => headers.get(key) ?? null },
     method: 'POST',
-    headers: { 'stripe-signature': signature },
-    body,
-  })
+  } as unknown as NextRequest
 }
 
 beforeEach(() => {
@@ -74,10 +76,7 @@ beforeEach(() => {
 describe('POST /api/webhooks/stripe', () => {
   describe('vérification de la signature', () => {
     it('retourne 400 si le header stripe-signature est absent', async () => {
-      const req = new NextRequest('http://localhost/api/webhooks/stripe', {
-        method: 'POST',
-        body: 'payload',
-      })
+      const req = makeRequest('payload')
       const res = await POST(req)
       expect(res.status).toBe(400)
       const json = await res.json()
@@ -89,7 +88,7 @@ describe('POST /api/webhooks/stripe', () => {
         throw new Error('Signature Stripe invalide')
       })
 
-      const res = await POST(makeWebhookRequest('bad-payload', 'bad-sig'))
+      const res = await POST(makeRequest('bad-payload', 'bad-sig'))
       expect(res.status).toBe(400)
       const json = await res.json()
       expect(json.error).toBe('Invalid signature')
@@ -125,10 +124,9 @@ describe('POST /api/webhooks/stripe', () => {
         }) as ReturnType<typeof createAdminClient>
       )
 
-      const res = await POST(makeWebhookRequest('{}'))
+      const res = await POST(makeRequest('{}', 'valid-sig'))
       expect(res.status).toBe(200)
-      const json = await res.json()
-      expect(json.received).toBe(true)
+      expect(await res.json()).toEqual({ received: true })
       expect(vi.mocked(sendEmail)).toHaveBeenCalledWith(
         expect.objectContaining({ template: 'welcome', to: 'user@example.com' })
       )
@@ -137,16 +135,10 @@ describe('POST /api/webhooks/stripe', () => {
 
   describe('customer.subscription.deleted', () => {
     it("annule le membre et envoie l'email d'expiration", async () => {
-      const memberWithCommunity = {
-        ...mockMember,
-        communities: mockCommunity,
-        platform_user_id: null,
-      }
+      const memberWithCommunity = { ...mockMember, communities: mockCommunity, platform_user_id: null }
       const fakeEvent = {
         type: 'customer.subscription.deleted',
-        data: {
-          object: { id: 'sub_fake' } as Stripe.Subscription,
-        },
+        data: { object: { id: 'sub_fake' } as Stripe.Subscription },
       } as Stripe.Event
 
       vi.mocked(constructWebhookEvent).mockReturnValue(fakeEvent)
@@ -157,7 +149,7 @@ describe('POST /api/webhooks/stripe', () => {
         }) as ReturnType<typeof createAdminClient>
       )
 
-      const res = await POST(makeWebhookRequest('{}'))
+      const res = await POST(makeRequest('{}', 'valid-sig'))
       expect(res.status).toBe(200)
       expect(vi.mocked(sendEmail)).toHaveBeenCalledWith(
         expect.objectContaining({ template: 'cancelled' })
@@ -170,9 +162,7 @@ describe('POST /api/webhooks/stripe', () => {
       const memberWithCommunity = { ...mockMember, communities: mockCommunity }
       const fakeEvent = {
         type: 'invoice.payment_failed',
-        data: {
-          object: { subscription: 'sub_fake' } as unknown as Stripe.Invoice,
-        },
+        data: { object: { subscription: 'sub_fake' } as unknown as Stripe.Invoice },
       } as Stripe.Event
 
       vi.mocked(constructWebhookEvent).mockReturnValue(fakeEvent)
@@ -182,7 +172,7 @@ describe('POST /api/webhooks/stripe', () => {
         }) as ReturnType<typeof createAdminClient>
       )
 
-      const res = await POST(makeWebhookRequest('{}'))
+      const res = await POST(makeRequest('{}', 'valid-sig'))
       expect(res.status).toBe(200)
       expect(vi.mocked(sendEmail)).toHaveBeenCalledWith(
         expect.objectContaining({ template: 'payment_failed' })
@@ -191,7 +181,7 @@ describe('POST /api/webhooks/stripe', () => {
   })
 
   describe('customer.subscription.updated', () => {
-    it('répond 200 sans effet de bord supplémentaire', async () => {
+    it('répond 200 sans email supplémentaire', async () => {
       const fakeEvent = {
         type: 'customer.subscription.updated',
         data: {
@@ -209,7 +199,7 @@ describe('POST /api/webhooks/stripe', () => {
         createSupabaseMock() as ReturnType<typeof createAdminClient>
       )
 
-      const res = await POST(makeWebhookRequest('{}'))
+      const res = await POST(makeRequest('{}', 'valid-sig'))
       expect(res.status).toBe(200)
       expect(vi.mocked(sendEmail)).not.toHaveBeenCalled()
     })

@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { NextRequest } from 'next/server'
+import type { NextRequest } from 'next/server'
 import { createSupabaseMock } from '../helpers/supabase-mock'
 
 vi.mock('@/lib/supabase-server', () => ({
@@ -34,12 +34,14 @@ const mockPlan = {
   },
 }
 
-function makeRequest(body: unknown) {
-  return new NextRequest('http://localhost/api/subscriptions/checkout', {
+function makeRequest(body: unknown): NextRequest {
+  return {
+    json: () => Promise.resolve(body),
+    headers: { get: () => null },
+    text: () => Promise.resolve(JSON.stringify(body)),
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body),
-  })
+    url: 'http://localhost/api/subscriptions/checkout',
+  } as unknown as NextRequest
 }
 
 beforeEach(() => {
@@ -69,7 +71,7 @@ describe('POST /api/subscriptions/checkout', () => {
     )
 
     const req = makeRequest({
-      planId: 'aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee',
+      planId: '123e4567-e89b-12d3-a456-426614174000',
       communitySlug: 'ma-communaute',
     })
     const res = await POST(req)
@@ -93,7 +95,7 @@ describe('POST /api/subscriptions/checkout', () => {
     )
 
     const req = makeRequest({
-      planId: 'aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee',
+      planId: '123e4567-e89b-12d3-a456-426614174000',
       communitySlug: 'ma-communaute',
     })
     const res = await POST(req)
@@ -111,7 +113,7 @@ describe('POST /api/subscriptions/checkout', () => {
     )
 
     const req = makeRequest({
-      planId: 'aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee',
+      planId: '123e4567-e89b-12d3-a456-426614174000',
       communitySlug: 'ma-communaute',
     })
     const res = await POST(req)
@@ -131,7 +133,7 @@ describe('POST /api/subscriptions/checkout', () => {
     )
 
     const req = makeRequest({
-      planId: 'aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee',
+      planId: '123e4567-e89b-12d3-a456-426614174000',
       communitySlug: 'ma-communaute',
     })
     const res = await POST(req)

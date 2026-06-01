@@ -4,6 +4,19 @@ import { askClaudeJson } from '@/lib/anthropic'
 import { createAdminClient } from '@/lib/supabase-server'
 import { sendRawEmail } from '@/lib/resend'
 
+type MemberRow = {
+  id: string
+  email: string
+  name: string | null
+  plan_id: string | null
+  status: string
+  created_at: string
+  current_period_end: string | null
+  churn_score: number | null
+  subscription_plans: { interval: string } | null
+  communities: { name: string; slug: string } | null
+}
+
 const MemberSignalSchema = z.object({
   member_id: z.string().uuid(),
   score: z.number().int().min(0).max(100),
@@ -22,12 +35,12 @@ export async function POST(req: NextRequest) {
     }
 
     const supabase = createAdminClient()
-    const { data: members } = await supabase
+    const { data: members } = await (supabase
       .from('members')
       .select(
         'id, email, name, plan_id, status, created_at, current_period_end, churn_score, subscription_plans(interval), communities(name, slug)'
       )
-      .in('status', ['active', 'trialing', 'past_due'])
+      .in('status', ['active', 'trialing', 'past_due']) as unknown as Promise<{ data: MemberRow[] | null }>)
 
     const now = Date.now()
     const memberSignals = (members ?? []).map((member) => {
@@ -63,8 +76,7 @@ ${JSON.stringify(memberSignals)}`
 
     for (const member of scored) {
       const previous = members?.find((m) => m.id === member.member_id)?.churn_score ?? null
-      await supabase
-        .from('members')
+      await (supabase.from('members') as any)
         .update({
           churn_score: member.score,
           churn_score_updated_at: new Date().toISOString(),

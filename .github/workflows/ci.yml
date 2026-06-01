@@ -19,7 +19,7 @@ jobs:
           cache: 'npm'
 
       - name: Installer les dépendances
-        run: npm ci
+        run: npm install
 
       - name: Vérification TypeScript
         run: npx tsc --noEmit
@@ -36,7 +36,7 @@ jobs:
           cache: 'npm'
 
       - name: Installer les dépendances
-        run: npm ci
+        run: npm install
 
       - name: ESLint via Next.js
         run: npm run lint
@@ -53,7 +53,7 @@ jobs:
           cache: 'npm'
 
       - name: Installer les dépendances
-        run: npm ci
+        run: npm install
 
       - name: Lancer les tests
         run: npm test
@@ -71,7 +71,7 @@ jobs:
           cache: 'npm'
 
       - name: Installer les dépendances
-        run: npm ci
+        run: npm install
 
       - name: Build Next.js
         run: npm run build

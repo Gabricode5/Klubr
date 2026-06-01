@@ -1,0 +1,10 @@
+// Variables d'environnement factices pour tous les tests
+process.env.NEXT_PUBLIC_APP_URL = 'http://localhost:3000'
+process.env.NEXT_PUBLIC_SUPABASE_URL = 'https://fake.supabase.co'
+process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY = 'fake-anon-key'
+process.env.SUPABASE_SERVICE_ROLE_KEY = 'fake-service-role-key'
+process.env.STRIPE_SECRET_KEY = 'sk_test_fakekey123456789'
+process.env.STRIPE_WEBHOOK_SECRET = 'whsec_fakewebhooksecret'
+process.env.ANTHROPIC_API_KEY = 'sk-ant-fake-key'
+process.env.RESEND_API_KEY = 're_fake_key'
+process.env.CRON_SECRET = 'fake-cron-secret'

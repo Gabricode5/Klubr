@@ -1,0 +1,302 @@
+{
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\app\\api\\ai\\churn-score\\route.ts": {
+    "mtime": 1780297696.5016735,
+    "ast_hash": "d30059ffcb5758f98c4d4d9d05466269",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\app\\api\\ai\\weekly-summary\\route.ts": {
+    "mtime": 1780297696.5049229,
+    "ast_hash": "4a91caea937dd3e5b6477d9ef2789633",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\app\\api\\creator\\communities\\create-with-plans\\route.ts": {
+    "mtime": 1780297696.5073843,
+    "ast_hash": "140ac319f7ed3840e78425a1ecf4093a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\app\\api\\creator\\communities\\create\\route.ts": {
+    "mtime": 1780297696.512691,
+    "ast_hash": "3ef980b9379db0f313aa9868016c0f57",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\app\\api\\creator\\communities\\route.ts": {
+    "mtime": 1780297696.516708,
+    "ast_hash": "3afb515a955d9792884379ad23f0601d",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\app\\api\\creator\\referral-config\\route.ts": {
+    "mtime": 1780297696.5191517,
+    "ast_hash": "d6ac176d1adbc0af2475bc7288db6b17",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\app\\api\\plans\\route.ts": {
+    "mtime": 1780297696.5211575,
+    "ast_hash": "e188dcab5ab589c5056e9aeaceefc081",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\app\\api\\subscriptions\\checkout\\route.ts": {
+    "mtime": 1780297696.5229528,
+    "ast_hash": "4a8d55dd58585bdb73b34d9345e27e4a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\app\\api\\tax\\monthly-email\\route.ts": {
+    "mtime": 1780297696.5229528,
+    "ast_hash": "afe88d8d430eb94323776ef840477471",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\app\\api\\tax\\report\\route.ts": {
+    "mtime": 1779969568.70332,
+    "ast_hash": "c7d05a088cb81d8b2acc7260a4ce9bde",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\app\\api\\webhooks\\stripe\\route.ts": {
+    "mtime": 1780297696.5229528,
+    "ast_hash": "a491cce70f5dfa3418f7d88a200ec7ea",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\app\\dashboard\\communities\\new\\page.tsx": {
+    "mtime": 1780297696.5229528,
+    "ast_hash": "7fdf9e203791771b93d9e4b786199af8",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\app\\dashboard\\fiscalite\\page.tsx": {
+    "mtime": 1780297696.5229528,
+    "ast_hash": "c22a83189d5d6a6c2e059f2c90e80bd8",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\app\\dashboard\\layout.tsx": {
+    "mtime": 1780297696.5387342,
+    "ast_hash": "f6c7d5b8c5c40e766fae94b06c11fe10",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\app\\dashboard\\members\\page.tsx": {
+    "mtime": 1780297696.5398738,
+    "ast_hash": "1a8b42b4aa0625837ab07646bc48a5c7",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\app\\dashboard\\page.tsx": {
+    "mtime": 1780297696.5450032,
+    "ast_hash": "77b75489fd78056f2b36aaa6cd1b5cde",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\app\\dashboard\\plans\\new\\page.tsx": {
+    "mtime": 1780297696.5471497,
+    "ast_hash": "407693f136d09f89f8381a704ae19608",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\app\\dashboard\\settings\\referral\\page.tsx": {
+    "mtime": 1780297696.550261,
+    "ast_hash": "45905de42588aa3b55f047f007632e62",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\app\\layout.tsx": {
+    "mtime": 1779959505.3065276,
+    "ast_hash": "10575a56b4449aa743d3daa45655b5a1",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\app\\login\\page.tsx": {
+    "mtime": 1780297696.5546741,
+    "ast_hash": "64de1735d2bd320e8cd1d846a3040690",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\app\\member\\[referral_code]\\page.tsx": {
+    "mtime": 1780297696.5574636,
+    "ast_hash": "592542f9d7b37dc0f45e73f0b6e80e1a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\app\\page.tsx": {
+    "mtime": 1780297696.5597143,
+    "ast_hash": "9d187c146820ab37c72a4713693b620b",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\app\\pay\\[slug]\\page.tsx": {
+    "mtime": 1780297696.5642698,
+    "ast_hash": "a0e7d6a2a5934bb56ab4e80114eeef29",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\app\\register\\page.tsx": {
+    "mtime": 1780297696.5662746,
+    "ast_hash": "266a4d3d74c7fecdbaebfee49c6979af",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\components\\copy-button.tsx": {
+    "mtime": 1780297696.5685987,
+    "ast_hash": "1b84c64dc6fe0b3faafa5d0be33507d0",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\components\\pay-page\\pay-page-client.tsx": {
+    "mtime": 1779969482.1222677,
+    "ast_hash": "9ad3e79d4f62a1130a2756922a5bfd9c",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\components\\sidebar.tsx": {
+    "mtime": 1780297696.570611,
+    "ast_hash": "d58e07a9f3a6a6bd769722d648b968ce",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\components\\ui\\badge.tsx": {
+    "mtime": 1779959393.2383397,
+    "ast_hash": "ae2de0ad6a23d49df32e6425dbb52b83",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\components\\ui\\button.tsx": {
+    "mtime": 1779959386.0039475,
+    "ast_hash": "c11dcd1e85b5691ab09d58f45e67a57d",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\components\\ui\\card.tsx": {
+    "mtime": 1779959390.1342254,
+    "ast_hash": "492e756e23133b32e6d00801b28aae93",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\docs\\setup.sh": {
+    "mtime": 1779959949.0375602,
+    "ast_hash": "482ca8e9da3676691bd740f7b10f9d50",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\lib\\anthropic.ts": {
+    "mtime": 1779969453.3474593,
+    "ast_hash": "f43efd38f2607706504ba87c6b145932",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\lib\\resend.ts": {
+    "mtime": 1779969653.4346035,
+    "ast_hash": "a478f6eb478c83359348c7713885f582",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\lib\\stripe.ts": {
+    "mtime": 1779969689.003405,
+    "ast_hash": "27b2a4726cbe17b1e0dcefa001ab7715",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\lib\\supabase-server.ts": {
+    "mtime": 1780297696.5729735,
+    "ast_hash": "edc02247220e2749488372610e4d12bf",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\lib\\supabase.ts": {
+    "mtime": 1780297696.576371,
+    "ast_hash": "3d606bc97a406f05101d138575fbd48f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\lib\\telegram.ts": {
+    "mtime": 1779959372.8680813,
+    "ast_hash": "e226858651fa0a05bf8b5a5bab5e49ea",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\middleware.ts": {
+    "mtime": 1780297696.577551,
+    "ast_hash": "c2b868306ed867d5d10c2b7532f777d9",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\next-env.d.ts": {
+    "mtime": 1780297696.5806408,
+    "ast_hash": "90426577ad8f38459f3e566411c85589",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\next.config.mjs": {
+    "mtime": 1779959496.3328276,
+    "ast_hash": "894c68b87a2c1c119f41bcb1d377b348",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\package.json": {
+    "mtime": 1780299670.5393107,
+    "ast_hash": "c365e6563b8d844cee7e8f56ddc61e3f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\postcss.config.mjs": {
+    "mtime": 1780297696.5888164,
+    "ast_hash": "a7f354cc191ff44214caa69257d23b8f",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\supabase\\migrations\\001_initial.sql": {
+    "mtime": 1779959473.904907,
+    "ast_hash": "78f707d25c852693bb7a14668255049c",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\supabase\\migrations\\002_differentiating_features.sql": {
+    "mtime": 1779969524.866215,
+    "ast_hash": "5e219b8074f421c0763375f10a90ae42",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\tailwind.config.js": {
+    "mtime": 1780297696.590854,
+    "ast_hash": "916fb089da430297abe19516db807735",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\tsconfig.json": {
+    "mtime": 1779959493.5886087,
+    "ast_hash": "0deb38cc62d377af5cab7e127c929df7",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\types\\database.ts": {
+    "mtime": 1779969447.1799867,
+    "ast_hash": "4ad5b24b14595a261eb40013311c0dda",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\vercel.json": {
+    "mtime": 1779969672.0675583,
+    "ast_hash": "e9ed36ce49406f96139eb6b468415d07",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\README.md": {
+    "mtime": 1779969700.9268272,
+    "ast_hash": "1a70941576e5aad9e53984285138af68",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\SETUP.md": {
+    "mtime": 1779969668.8171003,
+    "ast_hash": "f9cabbc277019c3024af51c948015059",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\docs\\plan-community-monetization-saas.md": {
+    "mtime": 1779959938.848318,
+    "ast_hash": "8e9047d08cdd142a924ea168db33e0ec",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\docs\\prompt-claude-code.md": {
+    "mtime": 1779959892.734543,
+    "ast_hash": "ee58e1446ba084ffcc68e9ec0f07287a",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\tests\\api\\checkout.test.ts": {
+    "mtime": 1780299743.638217,
+    "ast_hash": "3221d53ef7c51b095902408db11c1dfa",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\tests\\api\\communities-create.test.ts": {
+    "mtime": 1780299800.971838,
+    "ast_hash": "f449c9ee69a6215be2d51df54325ffc4",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\tests\\api\\webhook.test.ts": {
+    "mtime": 1780299779.9126458,
+    "ast_hash": "f4a5742fa67a5e6d472fd885c0c93aaf",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\tests\\helpers\\supabase-mock.ts": {
+    "mtime": 1780299716.7867632,
+    "ast_hash": "3fc3780dcfed841faa3cc98c7685e386",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\tests\\lib\\stripe.test.ts": {
+    "mtime": 1780299707.9831157,
+    "ast_hash": "00ce04c89aed75058d37867185211aaf",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\tests\\setup.ts": {
+    "mtime": 1780299690.1271515,
+    "ast_hash": "d6c63a2c64405485dfb6616491fd52b5",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\vitest.config.ts": {
+    "mtime": 1780299680.3319912,
+    "ast_hash": "e0e080c9edb2044f21655230a32f06e6",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\.github\\workflows\\ci.yml": {
+    "mtime": 1780299819.3569033,
+    "ast_hash": "1e84871b906927e665c1d26dacb4b894",
+    "semantic_hash": ""
+  }
+}

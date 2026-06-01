@@ -1,16 +1,16 @@
 # Graph Report - Klubr  (2026-06-01)
 
 ## Corpus Check
-- 59 files · ~17,564 words
+- 60 files · ~17,975 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 285 nodes · 388 edges · 24 communities (16 shown, 8 thin omitted)
+- 298 nodes · 410 edges · 25 communities (17 shown, 8 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 1 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `95ec32cb`
+- Built from commit: `3973034e`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -35,6 +35,7 @@
 - [[_COMMUNITY_Community 17|Community 17]]
 - [[_COMMUNITY_Community 18|Community 18]]
 - [[_COMMUNITY_Community 21|Community 21]]
+- [[_COMMUNITY_Community 24|Community 24]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `createAdminClient()` - 33 edges
@@ -44,9 +45,9 @@
 5. `createClient()` - 11 edges
 6. `Ce que tu dois builder` - 11 edges
 7. `POST()` - 9 edges
-8. `CommunityPay — Build complet` - 9 edges
-9. `sendRawEmail()` - 7 edges
-10. `scripts` - 7 edges
+8. `getStripe()` - 9 edges
+9. `CommunityPay — Build complet` - 9 edges
+10. `sendRawEmail()` - 8 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `NewCommunityPage()` --calls--> `createClient()`  [INFERRED]
@@ -63,11 +64,11 @@
 ## Import Cycles
 - None detected.
 
-## Communities (24 total, 8 thin omitted)
+## Communities (25 total, 8 thin omitted)
 
 ### Community 0 - "Community 0"
-Cohesion: 0.10
-Nodes (23): mockUser, validBody, GET(), QuerySchema, CopyButton(), POST(), POST(), DashboardPage() (+15 more)
+Cohesion: 0.11
+Nodes (22): mockUser, validBody, GET(), QuerySchema, CopyButton(), POST(), POST(), DashboardPage() (+14 more)
 
 ### Community 1 - "Community 1"
 Cohesion: 0.06
@@ -87,7 +88,7 @@ Nodes (13): nav, Sidebar(), createClient(), LoginPage(), BotInfo, CommunityOptio
 
 ### Community 5 - "Community 5"
 Cohesion: 0.11
-Nodes (18): mockPlan, setupAuth(), CheckoutSchema, POST(), createSupabaseMock(), sendEmail(), calculateFees(), constructWebhookEvent() (+10 more)
+Nodes (25): mockPlan, setupAuth(), mockCommunity, mockMember, mockPlan, CheckoutSchema, POST(), createSupabaseMock() (+17 more)
 
 ### Community 6 - "Community 6"
 Cohesion: 0.10
@@ -98,8 +99,8 @@ Cohesion: 0.10
 Nodes (19): 10. Landing page, 1. Auth, 2. Onboarding Stripe Connect, 3. Dashboard créateur, 4. Gestion des communautés, 5. Plans d'abonnement, 6. Page de paiement publique, 7. Webhooks Stripe (+11 more)
 
 ### Community 8 - "Community 8"
-Cohesion: 0.16
-Nodes (14): MemberSignalSchema, POST(), ResponseSchema, ScoredMember, AnthropicResponse, AnthropicTextBlock, askClaudeJson(), EmailPayload (+6 more)
+Cohesion: 0.13
+Nodes (18): MemberRow, MemberSignalSchema, POST(), ResponseSchema, ScoredMember, AnthropicResponse, AnthropicTextBlock, askClaudeJson() (+10 more)
 
 ### Community 9 - "Community 9"
 Cohesion: 0.33
@@ -110,11 +111,15 @@ Cohesion: 0.50
 Nodes (3): Cron jobs Vercel, Setup fiscalite (TVA OSS), Stripe Tax - activation
 
 ### Community 21 - "Community 21"
-Cohesion: 0.18
-Nodes (11): devDependencies, autoprefixer, postcss, tailwindcss, @types/node, @types/react, @types/react-dom, typescript (+3 more)
+Cohesion: 0.15
+Nodes (13): devDependencies, autoprefixer, eslint, eslint-config-next, postcss, tailwindcss, @types/node, @types/react (+5 more)
+
+### Community 24 - "Community 24"
+Cohesion: 0.50
+Nodes (3): extends, rules, react/no-unescaped-entities
 
 ## Knowledge Gaps
-- **144 isolated node(s):** `MemberSignalSchema`, `ResponseSchema`, `ScoredMember`, `WeeklyEmail`, `QuerySchema` (+139 more)
+- **152 isolated node(s):** `extends`, `react/no-unescaped-entities`, `MemberRow`, `MemberSignalSchema`, `ResponseSchema` (+147 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **8 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -125,10 +130,10 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.069) - this node is a cross-community bridge._
 - **Why does `Database` connect `Community 2` to `Community 0`, `Community 4`?**
   _High betweenness centrality (0.026) - this node is a cross-community bridge._
-- **What connects `MemberSignalSchema`, `ResponseSchema`, `ScoredMember` to the rest of the system?**
-  _144 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **What connects `extends`, `react/no-unescaped-entities`, `MemberRow` to the rest of the system?**
+  _152 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.10121457489878542 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.1066066066066066 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
   _Cohesion score 0.0625 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**

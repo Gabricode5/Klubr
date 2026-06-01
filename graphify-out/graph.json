@@ -4,6 +4,42 @@
   "graph": {},
   "nodes": [
     {
+      "label": ".eslintrc.json",
+      "file_type": "code",
+      "source_file": ".eslintrc.json",
+      "source_location": "L1",
+      "id": "eslintrc",
+      "community": 24,
+      "norm_label": ".eslintrc.json"
+    },
+    {
+      "label": "extends",
+      "file_type": "code",
+      "source_file": ".eslintrc.json",
+      "source_location": "L2",
+      "id": "eslintrc_extends",
+      "community": 24,
+      "norm_label": "extends"
+    },
+    {
+      "label": "rules",
+      "file_type": "code",
+      "source_file": ".eslintrc.json",
+      "source_location": "L3",
+      "id": "eslintrc_rules",
+      "community": 24,
+      "norm_label": "rules"
+    },
+    {
+      "label": "react/no-unescaped-entities",
+      "file_type": "code",
+      "source_file": ".eslintrc.json",
+      "source_location": "L4",
+      "id": "eslintrc_rules_react_no_unescaped_entities",
+      "community": 24,
+      "norm_label": "react/no-unescaped-entities"
+    },
+    {
       "label": "route.ts",
       "file_type": "code",
       "source_file": "app/api/ai/churn-score/route.ts",
@@ -13,10 +49,19 @@
       "norm_label": "route.ts"
     },
     {
-      "label": "MemberSignalSchema",
+      "label": "MemberRow",
       "file_type": "code",
       "source_file": "app/api/ai/churn-score/route.ts",
       "source_location": "L7",
+      "id": "churn_score_route_memberrow",
+      "community": 8,
+      "norm_label": "memberrow"
+    },
+    {
+      "label": "MemberSignalSchema",
+      "file_type": "code",
+      "source_file": "app/api/ai/churn-score/route.ts",
+      "source_location": "L20",
       "id": "churn_score_route_membersignalschema",
       "community": 8,
       "norm_label": "membersignalschema"
@@ -25,7 +70,7 @@
       "label": "ResponseSchema",
       "file_type": "code",
       "source_file": "app/api/ai/churn-score/route.ts",
-      "source_location": "L13",
+      "source_location": "L26",
       "id": "churn_score_route_responseschema",
       "community": 8,
       "norm_label": "responseschema"
@@ -34,7 +79,7 @@
       "label": "ScoredMember",
       "file_type": "code",
       "source_file": "app/api/ai/churn-score/route.ts",
-      "source_location": "L15",
+      "source_location": "L28",
       "id": "churn_score_route_scoredmember",
       "community": 8,
       "norm_label": "scoredmember"
@@ -43,7 +88,7 @@
       "label": "POST()",
       "file_type": "code",
       "source_file": "app/api/ai/churn-score/route.ts",
-      "source_location": "L17",
+      "source_location": "L30",
       "id": "churn_score_route_post",
       "community": 8,
       "norm_label": "post()"
@@ -225,7 +270,7 @@
       "source_file": "app/api/tax/monthly-email/route.ts",
       "source_location": "L1",
       "id": "monthly_email_route",
-      "community": 0,
+      "community": 8,
       "norm_label": "route.ts"
     },
     {
@@ -234,7 +279,7 @@
       "source_file": "app/api/tax/monthly-email/route.ts",
       "source_location": "L5",
       "id": "monthly_email_route_post",
-      "community": 0,
+      "community": 8,
       "norm_label": "post()"
     },
     {
@@ -250,7 +295,7 @@
       "label": "QuerySchema",
       "file_type": "code",
       "source_file": "app/api/tax/report/route.ts",
-      "source_location": "L5",
+      "source_location": "L6",
       "id": "report_route_queryschema",
       "community": 5,
       "norm_label": "queryschema"
@@ -259,7 +304,7 @@
       "label": "GET()",
       "file_type": "code",
       "source_file": "app/api/tax/report/route.ts",
-      "source_location": "L10",
+      "source_location": "L11",
       "id": "report_route_get",
       "community": 5,
       "norm_label": "get()"
@@ -709,7 +754,7 @@
       "label": "PayPageClientProps",
       "file_type": "code",
       "source_file": "components/pay-page/pay-page-client.tsx",
-      "source_location": "L9",
+      "source_location": "L10",
       "id": "pay_page_pay_page_client_paypageclientprops",
       "community": 2,
       "norm_label": "paypageclientprops"
@@ -718,7 +763,7 @@
       "label": "PLATFORM_LABELS",
       "file_type": "code",
       "source_file": "components/pay-page/pay-page-client.tsx",
-      "source_location": "L17",
+      "source_location": "L18",
       "id": "pay_page_pay_page_client_platform_labels",
       "community": 2,
       "norm_label": "platform_labels"
@@ -727,7 +772,7 @@
       "label": "INTERVAL_LABELS",
       "file_type": "code",
       "source_file": "components/pay-page/pay-page-client.tsx",
-      "source_location": "L23",
+      "source_location": "L24",
       "id": "pay_page_pay_page_client_interval_labels",
       "community": 2,
       "norm_label": "interval_labels"
@@ -736,7 +781,7 @@
       "label": "PayPageClient()",
       "file_type": "code",
       "source_file": "components/pay-page/pay-page-client.tsx",
-      "source_location": "L29",
+      "source_location": "L30",
       "id": "pay_page_pay_page_client_paypageclient",
       "community": 0,
       "norm_label": "paypageclient()"
@@ -948,19 +993,19 @@
       "norm_label": "resend.ts"
     },
     {
-      "label": "resend",
+      "label": "getResend()",
       "file_type": "code",
       "source_file": "lib/resend.ts",
-      "source_location": "L3",
-      "id": "lib_resend_resend",
+      "source_location": "L5",
+      "id": "lib_resend_getresend",
       "community": 8,
-      "norm_label": "resend"
+      "norm_label": "getresend()"
     },
     {
       "label": "EmailTemplate",
       "file_type": "code",
       "source_file": "lib/resend.ts",
-      "source_location": "L5",
+      "source_location": "L10",
       "id": "lib_resend_emailtemplate",
       "community": 8,
       "norm_label": "emailtemplate"
@@ -969,7 +1014,7 @@
       "label": "EmailPayload",
       "file_type": "code",
       "source_file": "lib/resend.ts",
-      "source_location": "L7",
+      "source_location": "L12",
       "id": "lib_resend_emailpayload",
       "community": 8,
       "norm_label": "emailpayload"
@@ -978,7 +1023,7 @@
       "label": "templates",
       "file_type": "code",
       "source_file": "lib/resend.ts",
-      "source_location": "L14",
+      "source_location": "L19",
       "id": "lib_resend_templates",
       "community": 8,
       "norm_label": "templates"
@@ -987,16 +1032,16 @@
       "label": "sendEmail()",
       "file_type": "code",
       "source_file": "lib/resend.ts",
-      "source_location": "L50",
+      "source_location": "L55",
       "id": "lib_resend_sendemail",
-      "community": 5,
+      "community": 8,
       "norm_label": "sendemail()"
     },
     {
       "label": "sendRawEmail()",
       "file_type": "code",
       "source_file": "lib/resend.ts",
-      "source_location": "L63",
+      "source_location": "L68",
       "id": "lib_resend_sendrawemail",
       "community": 8,
       "norm_label": "sendrawemail()"
@@ -1011,19 +1056,19 @@
       "norm_label": "stripe.ts"
     },
     {
-      "label": "stripe",
+      "label": "getStripe()",
       "file_type": "code",
       "source_file": "lib/stripe.ts",
-      "source_location": "L3",
-      "id": "lib_stripe_stripe",
+      "source_location": "L5",
+      "id": "lib_stripe_getstripe",
       "community": 5,
-      "norm_label": "stripe"
+      "norm_label": "getstripe()"
     },
     {
       "label": "calculateFees()",
       "file_type": "code",
       "source_file": "lib/stripe.ts",
-      "source_location": "L8",
+      "source_location": "L15",
       "id": "lib_stripe_calculatefees",
       "community": 5,
       "norm_label": "calculatefees()"
@@ -1032,7 +1077,7 @@
       "label": "createConnectAccount()",
       "file_type": "code",
       "source_file": "lib/stripe.ts",
-      "source_location": "L15",
+      "source_location": "L22",
       "id": "lib_stripe_createconnectaccount",
       "community": 5,
       "norm_label": "createconnectaccount()"
@@ -1041,7 +1086,7 @@
       "label": "createOnboardingLink()",
       "file_type": "code",
       "source_file": "lib/stripe.ts",
-      "source_location": "L31",
+      "source_location": "L38",
       "id": "lib_stripe_createonboardinglink",
       "community": 5,
       "norm_label": "createonboardinglink()"
@@ -1050,7 +1095,7 @@
       "label": "createStripePrice()",
       "file_type": "code",
       "source_file": "lib/stripe.ts",
-      "source_location": "L40",
+      "source_location": "L47",
       "id": "lib_stripe_createstripeprice",
       "community": 5,
       "norm_label": "createstripeprice()"
@@ -1059,7 +1104,7 @@
       "label": "createCheckoutSession()",
       "file_type": "code",
       "source_file": "lib/stripe.ts",
-      "source_location": "L64",
+      "source_location": "L72",
       "id": "lib_stripe_createcheckoutsession",
       "community": 5,
       "norm_label": "createcheckoutsession()"
@@ -1068,7 +1113,7 @@
       "label": "extendSubscriptionByDays()",
       "file_type": "code",
       "source_file": "lib/stripe.ts",
-      "source_location": "L110",
+      "source_location": "L119",
       "id": "lib_stripe_extendsubscriptionbydays",
       "community": 5,
       "norm_label": "extendsubscriptionbydays()"
@@ -1077,7 +1122,7 @@
       "label": "constructWebhookEvent()",
       "file_type": "code",
       "source_file": "lib/stripe.ts",
-      "source_location": "L123",
+      "source_location": "L134",
       "id": "lib_stripe_constructwebhookevent",
       "community": 5,
       "norm_label": "constructwebhookevent()"
@@ -1095,7 +1140,7 @@
       "label": "createServerSupabaseClient()",
       "file_type": "code",
       "source_file": "lib/supabase-server.ts",
-      "source_location": "L6",
+      "source_location": "L9",
       "id": "lib_supabase_server_createserversupabaseclient",
       "community": 0,
       "norm_label": "createserversupabaseclient()"
@@ -1104,7 +1149,7 @@
       "label": "createAdminClient()",
       "file_type": "code",
       "source_file": "lib/supabase-server.ts",
-      "source_location": "L30",
+      "source_location": "L33",
       "id": "lib_supabase_server_createadminclient",
       "community": 0,
       "norm_label": "createadminclient()"
@@ -1452,28 +1497,37 @@
       "norm_label": "@types/react-dom"
     },
     {
-      "label": "@vitejs/plugin-react",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L28",
-      "id": "package_devdependencies_vitejs_plugin_react",
-      "community": 21,
-      "norm_label": "@vitejs/plugin-react"
-    },
-    {
       "label": "autoprefixer",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L29",
+      "source_location": "L28",
       "id": "package_devdependencies_autoprefixer",
       "community": 21,
       "norm_label": "autoprefixer"
     },
     {
-      "label": "postcss",
+      "label": "eslint",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L29",
+      "id": "package_devdependencies_eslint",
+      "community": 21,
+      "norm_label": "eslint"
+    },
+    {
+      "label": "eslint-config-next",
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L30",
+      "id": "package_devdependencies_eslint_config_next",
+      "community": 21,
+      "norm_label": "eslint-config-next"
+    },
+    {
+      "label": "postcss",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L31",
       "id": "package_devdependencies_postcss",
       "community": 21,
       "norm_label": "postcss"
@@ -1482,7 +1536,7 @@
       "label": "tailwindcss",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L31",
+      "source_location": "L32",
       "id": "package_devdependencies_tailwindcss",
       "community": 21,
       "norm_label": "tailwindcss"
@@ -1491,19 +1545,10 @@
       "label": "typescript",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L32",
+      "source_location": "L33",
       "id": "package_devdependencies_typescript",
       "community": 21,
       "norm_label": "typescript"
-    },
-    {
-      "label": "vite-tsconfig-paths",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L33",
-      "id": "package_devdependencies_vite_tsconfig_paths",
-      "community": 21,
-      "norm_label": "vite-tsconfig-paths"
     },
     {
       "label": "vitest",
@@ -1608,7 +1653,7 @@
       "label": "setupAuth()",
       "file_type": "code",
       "source_file": "tests/api/communities-create.test.ts",
-      "source_location": "L32",
+      "source_location": "L33",
       "id": "api_communities_create_test_setupauth",
       "community": 5,
       "norm_label": "setupauth()"
@@ -1623,13 +1668,40 @@
       "norm_label": "webhook.test.ts"
     },
     {
-      "label": "makeWebhookRequest()",
+      "label": "mockCommunity",
+      "file_type": "code",
+      "source_file": "tests/api/webhook.test.ts",
+      "source_location": "L35",
+      "id": "api_webhook_test_mockcommunity",
+      "community": 5,
+      "norm_label": "mockcommunity"
+    },
+    {
+      "label": "mockPlan",
+      "file_type": "code",
+      "source_file": "tests/api/webhook.test.ts",
+      "source_location": "L49",
+      "id": "api_webhook_test_mockplan",
+      "community": 5,
+      "norm_label": "mockplan"
+    },
+    {
+      "label": "mockMember",
+      "file_type": "code",
+      "source_file": "tests/api/webhook.test.ts",
+      "source_location": "L54",
+      "id": "api_webhook_test_mockmember",
+      "community": 5,
+      "norm_label": "mockmember"
+    },
+    {
+      "label": "makeRequest()",
       "file_type": "code",
       "source_file": "tests/api/webhook.test.ts",
       "source_location": "L62",
-      "id": "api_webhook_test_makewebhookrequest",
+      "id": "api_webhook_test_makerequest",
       "community": 5,
-      "norm_label": "makewebhookrequest()"
+      "norm_label": "makerequest()"
     },
     {
       "label": "supabase-mock.ts",
@@ -1914,7 +1986,7 @@
       "label": "Community",
       "file_type": "code",
       "source_file": "types/database.ts",
-      "source_location": "L18",
+      "source_location": "L19",
       "id": "types_database_community",
       "community": 2,
       "norm_label": "community"
@@ -1923,7 +1995,7 @@
       "label": "SubscriptionPlan",
       "file_type": "code",
       "source_file": "types/database.ts",
-      "source_location": "L33",
+      "source_location": "L34",
       "id": "types_database_subscriptionplan",
       "community": 2,
       "norm_label": "subscriptionplan"
@@ -1932,7 +2004,7 @@
       "label": "PlanCommunity",
       "file_type": "code",
       "source_file": "types/database.ts",
-      "source_location": "L47",
+      "source_location": "L48",
       "id": "types_database_plancommunity",
       "community": 2,
       "norm_label": "plancommunity"
@@ -1941,7 +2013,7 @@
       "label": "Affiliate",
       "file_type": "code",
       "source_file": "types/database.ts",
-      "source_location": "L54",
+      "source_location": "L55",
       "id": "types_database_affiliate",
       "community": 2,
       "norm_label": "affiliate"
@@ -1950,7 +2022,7 @@
       "label": "Member",
       "file_type": "code",
       "source_file": "types/database.ts",
-      "source_location": "L66",
+      "source_location": "L67",
       "id": "types_database_member",
       "community": 2,
       "norm_label": "member"
@@ -1959,7 +2031,7 @@
       "label": "MemberCommunityAccess",
       "file_type": "code",
       "source_file": "types/database.ts",
-      "source_location": "L89",
+      "source_location": "L90",
       "id": "types_database_membercommunityaccess",
       "community": 2,
       "norm_label": "membercommunityaccess"
@@ -1968,7 +2040,7 @@
       "label": "Transaction",
       "file_type": "code",
       "source_file": "types/database.ts",
-      "source_location": "L97",
+      "source_location": "L98",
       "id": "types_database_transaction",
       "community": 2,
       "norm_label": "transaction"
@@ -1977,7 +2049,7 @@
       "label": "CreatorSettings",
       "file_type": "code",
       "source_file": "types/database.ts",
-      "source_location": "L113",
+      "source_location": "L114",
       "id": "types_database_creatorsettings",
       "community": 2,
       "norm_label": "creatorsettings"
@@ -1986,7 +2058,7 @@
       "label": "Database",
       "file_type": "code",
       "source_file": "types/database.ts",
-      "source_location": "L117",
+      "source_location": "L120",
       "id": "types_database_database",
       "community": 2,
       "norm_label": "database"
@@ -2575,9 +2647,94 @@
       "id": "docs_prompt_claude_code_commence_par",
       "community": 7,
       "norm_label": "commence par"
+    },
+    {
+      "label": "resend",
+      "file_type": "code",
+      "source_file": "lib/resend.ts",
+      "source_location": "L3",
+      "community": 8,
+      "norm_label": "resend",
+      "id": "lib_resend_resend"
+    },
+    {
+      "label": "stripe",
+      "file_type": "code",
+      "source_file": "lib/stripe.ts",
+      "source_location": "L3",
+      "community": 5,
+      "norm_label": "stripe",
+      "id": "lib_stripe_stripe"
+    },
+    {
+      "label": "@vitejs/plugin-react",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L28",
+      "community": 21,
+      "norm_label": "@vitejs/plugin-react",
+      "id": "package_devdependencies_vitejs_plugin_react"
+    },
+    {
+      "label": "vite-tsconfig-paths",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L33",
+      "community": 21,
+      "norm_label": "vite-tsconfig-paths",
+      "id": "package_devdependencies_vite_tsconfig_paths"
+    },
+    {
+      "label": "makeWebhookRequest()",
+      "file_type": "code",
+      "source_file": "tests/api/webhook.test.ts",
+      "source_location": "L62",
+      "community": 5,
+      "norm_label": "makewebhookrequest()",
+      "id": "api_webhook_test_makewebhookrequest"
     }
   ],
   "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".eslintrc.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "eslintrc",
+      "target": "eslintrc_extends",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".eslintrc.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "eslintrc",
+      "target": "eslintrc_rules",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".eslintrc.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "eslintrc_rules",
+      "target": "eslintrc_rules_react_no_unescaped_entities",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/ai/churn-score/route.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "churn_score_route",
+      "target": "churn_score_route_memberrow",
+      "confidence_score": 1.0
+    },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
@@ -2886,9 +3043,9 @@
       "source_file": "tests/api/communities-create.test.ts",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_communities_create_test",
-      "target": "create_route",
-      "confidence_score": 1.0
+      "target": "create_route"
     },
     {
       "relation": "contains",
@@ -2940,9 +3097,9 @@
       "source_file": "tests/api/communities-create.test.ts",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_communities_create_test",
-      "target": "create_route_post",
-      "confidence_score": 1.0
+      "target": "create_route_post"
     },
     {
       "relation": "calls",
@@ -3176,9 +3333,9 @@
       "source_file": "tests/api/checkout.test.ts",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_checkout_test",
-      "target": "checkout_route",
-      "confidence_score": 1.0
+      "target": "checkout_route"
     },
     {
       "relation": "contains",
@@ -3251,9 +3408,9 @@
       "source_file": "tests/api/checkout.test.ts",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_checkout_test",
-      "target": "checkout_route_post",
-      "confidence_score": 1.0
+      "target": "checkout_route_post"
     },
     {
       "relation": "calls",
@@ -3369,6 +3526,17 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/api/tax/report/route.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "report_route",
+      "target": "lib_stripe_getstripe",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/api/tax/report/route.ts",
       "source_location": "L3",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -3396,15 +3564,26 @@
       "target": "report_route_queryschema"
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/api/tax/report/route.ts",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "report_route_get",
+      "target": "lib_stripe_getstripe"
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "tests/api/webhook.test.ts",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_webhook_test",
-      "target": "stripe_route",
-      "confidence_score": 1.0
+      "target": "stripe_route"
     },
     {
       "relation": "imports_from",
@@ -3554,9 +3733,9 @@
       "source_file": "tests/api/webhook.test.ts",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_webhook_test",
-      "target": "stripe_route_post",
-      "confidence_score": 1.0
+      "target": "stripe_route_post"
     },
     {
       "relation": "calls",
@@ -4725,9 +4904,9 @@
       "source_file": "tests/api/webhook.test.ts",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_webhook_test",
-      "target": "lib_resend",
-      "confidence_score": 1.0
+      "target": "lib_resend"
     },
     {
       "relation": "contains",
@@ -4748,6 +4927,16 @@
       "confidence_score": 1.0,
       "source": "lib_resend",
       "target": "lib_resend_emailtemplate"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/resend.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "lib_resend",
+      "target": "lib_resend_getresend",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -4790,15 +4979,37 @@
       "target": "lib_resend_templates"
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/resend.ts",
+      "source_location": "L57",
+      "weight": 1.0,
+      "source": "lib_resend_sendemail",
+      "target": "lib_resend_getresend",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/resend.ts",
+      "source_location": "L78",
+      "weight": 1.0,
+      "source": "lib_resend_sendrawemail",
+      "target": "lib_resend_getresend",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "tests/api/webhook.test.ts",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_webhook_test",
-      "target": "lib_resend_sendemail",
-      "confidence_score": 1.0
+      "target": "lib_resend_sendemail"
     },
     {
       "relation": "imports_from",
@@ -4807,9 +5018,9 @@
       "source_file": "tests/api/checkout.test.ts",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_checkout_test",
-      "target": "lib_stripe",
-      "confidence_score": 1.0
+      "target": "lib_stripe"
     },
     {
       "relation": "imports_from",
@@ -4818,9 +5029,9 @@
       "source_file": "tests/api/webhook.test.ts",
       "source_location": "L32",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_webhook_test",
-      "target": "lib_stripe",
-      "confidence_score": 1.0
+      "target": "lib_stripe"
     },
     {
       "relation": "contains",
@@ -4896,6 +5107,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/stripe.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "lib_stripe",
+      "target": "lib_stripe_getstripe",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/stripe.ts",
       "source_location": "L3",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -4909,8 +5130,74 @@
       "source_file": "tests/lib/stripe.test.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_stripe_test",
-      "target": "lib_stripe",
+      "target": "lib_stripe"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/stripe.ts",
+      "source_location": "L135",
+      "weight": 1.0,
+      "source": "lib_stripe_constructwebhookevent",
+      "target": "lib_stripe_getstripe",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/stripe.ts",
+      "source_location": "L91",
+      "weight": 1.0,
+      "source": "lib_stripe_createcheckoutsession",
+      "target": "lib_stripe_getstripe",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/stripe.ts",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "lib_stripe_createconnectaccount",
+      "target": "lib_stripe_getstripe",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/stripe.ts",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "lib_stripe_createonboardinglink",
+      "target": "lib_stripe_getstripe",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/stripe.ts",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "lib_stripe_createstripeprice",
+      "target": "lib_stripe_getstripe",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/stripe.ts",
+      "source_location": "L120",
+      "weight": 1.0,
+      "source": "lib_stripe_extendsubscriptionbydays",
+      "target": "lib_stripe_getstripe",
       "confidence_score": 1.0
     },
     {
@@ -4920,9 +5207,9 @@
       "source_file": "tests/lib/stripe.test.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "lib_stripe_test",
-      "target": "lib_stripe_calculatefees",
-      "confidence_score": 1.0
+      "target": "lib_stripe_calculatefees"
     },
     {
       "relation": "imports",
@@ -4931,9 +5218,9 @@
       "source_file": "tests/api/checkout.test.ts",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_checkout_test",
-      "target": "lib_stripe_createcheckoutsession",
-      "confidence_score": 1.0
+      "target": "lib_stripe_createcheckoutsession"
     },
     {
       "relation": "imports",
@@ -4942,9 +5229,9 @@
       "source_file": "tests/api/webhook.test.ts",
       "source_location": "L32",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_webhook_test",
-      "target": "lib_stripe_constructwebhookevent",
-      "confidence_score": 1.0
+      "target": "lib_stripe_constructwebhookevent"
     },
     {
       "relation": "imports_from",
@@ -4953,9 +5240,9 @@
       "source_file": "tests/api/checkout.test.ts",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_checkout_test",
-      "target": "lib_supabase_server",
-      "confidence_score": 1.0
+      "target": "lib_supabase_server"
     },
     {
       "relation": "imports_from",
@@ -4964,9 +5251,9 @@
       "source_file": "tests/api/communities-create.test.ts",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_communities_create_test",
-      "target": "lib_supabase_server",
-      "confidence_score": 1.0
+      "target": "lib_supabase_server"
     },
     {
       "relation": "imports_from",
@@ -4975,9 +5262,9 @@
       "source_file": "tests/api/webhook.test.ts",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_webhook_test",
-      "target": "lib_supabase_server",
-      "confidence_score": 1.0
+      "target": "lib_supabase_server"
     },
     {
       "relation": "contains",
@@ -5028,9 +5315,9 @@
       "source_file": "tests/api/communities-create.test.ts",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_communities_create_test",
-      "target": "lib_supabase_server_createserversupabaseclient",
-      "confidence_score": 1.0
+      "target": "lib_supabase_server_createserversupabaseclient"
     },
     {
       "relation": "imports",
@@ -5039,9 +5326,9 @@
       "source_file": "tests/api/checkout.test.ts",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_checkout_test",
-      "target": "lib_supabase_server_createadminclient",
-      "confidence_score": 1.0
+      "target": "lib_supabase_server_createadminclient"
     },
     {
       "relation": "imports",
@@ -5050,9 +5337,9 @@
       "source_file": "tests/api/communities-create.test.ts",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_communities_create_test",
-      "target": "lib_supabase_server_createadminclient",
-      "confidence_score": 1.0
+      "target": "lib_supabase_server_createadminclient"
     },
     {
       "relation": "imports",
@@ -5061,9 +5348,9 @@
       "source_file": "tests/api/webhook.test.ts",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_webhook_test",
-      "target": "lib_supabase_server_createadminclient",
-      "confidence_score": 1.0
+      "target": "lib_supabase_server_createadminclient"
     },
     {
       "relation": "contains",
@@ -5306,9 +5593,9 @@
       "source_file": "package.json",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "package_scripts",
-      "target": "package_scripts_test",
-      "confidence_score": 1.0
+      "target": "package_scripts_test"
     },
     {
       "relation": "contains",
@@ -5316,9 +5603,9 @@
       "source_file": "package.json",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "package_scripts",
-      "target": "package_scripts_test_watch",
-      "confidence_score": 1.0
+      "target": "package_scripts_test_watch"
     },
     {
       "relation": "contains",
@@ -5424,6 +5711,26 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_eslint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_eslint_config_next",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
       "source_location": "L27",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -5486,9 +5793,9 @@
       "source_file": "package.json",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "package_devdependencies",
-      "target": "package_devdependencies_vite_tsconfig_paths",
-      "confidence_score": 1.0
+      "target": "package_devdependencies_vite_tsconfig_paths"
     },
     {
       "relation": "contains",
@@ -5496,9 +5803,9 @@
       "source_file": "package.json",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "package_devdependencies",
-      "target": "package_devdependencies_vitejs_plugin_react",
-      "confidence_score": 1.0
+      "target": "package_devdependencies_vitejs_plugin_react"
     },
     {
       "relation": "contains",
@@ -5506,9 +5813,9 @@
       "source_file": "package.json",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "package_devdependencies",
-      "target": "package_devdependencies_vitest",
-      "confidence_score": 1.0
+      "target": "package_devdependencies_vitest"
     },
     {
       "relation": "contains",
@@ -5526,9 +5833,9 @@
       "source_file": "tests/api/checkout.test.ts",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_checkout_test",
-      "target": "api_checkout_test_makerequest",
-      "confidence_score": 1.0
+      "target": "api_checkout_test_makerequest"
     },
     {
       "relation": "contains",
@@ -5536,9 +5843,9 @@
       "source_file": "tests/api/checkout.test.ts",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_checkout_test",
-      "target": "api_checkout_test_mockplan",
-      "confidence_score": 1.0
+      "target": "api_checkout_test_mockplan"
     },
     {
       "relation": "imports_from",
@@ -5547,9 +5854,9 @@
       "source_file": "tests/api/checkout.test.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_checkout_test",
-      "target": "helpers_supabase_mock",
-      "confidence_score": 1.0
+      "target": "helpers_supabase_mock"
     },
     {
       "relation": "imports",
@@ -5558,9 +5865,9 @@
       "source_file": "tests/api/checkout.test.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_checkout_test",
-      "target": "helpers_supabase_mock_createsupabasemock",
-      "confidence_score": 1.0
+      "target": "helpers_supabase_mock_createsupabasemock"
     },
     {
       "relation": "contains",
@@ -5568,9 +5875,9 @@
       "source_file": "tests/api/communities-create.test.ts",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_communities_create_test",
-      "target": "api_communities_create_test_makerequest",
-      "confidence_score": 1.0
+      "target": "api_communities_create_test_makerequest"
     },
     {
       "relation": "contains",
@@ -5578,9 +5885,9 @@
       "source_file": "tests/api/communities-create.test.ts",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_communities_create_test",
-      "target": "api_communities_create_test_mockuser",
-      "confidence_score": 1.0
+      "target": "api_communities_create_test_mockuser"
     },
     {
       "relation": "contains",
@@ -5588,9 +5895,9 @@
       "source_file": "tests/api/communities-create.test.ts",
       "source_location": "L32",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_communities_create_test",
-      "target": "api_communities_create_test_setupauth",
-      "confidence_score": 1.0
+      "target": "api_communities_create_test_setupauth"
     },
     {
       "relation": "contains",
@@ -5598,9 +5905,9 @@
       "source_file": "tests/api/communities-create.test.ts",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_communities_create_test",
-      "target": "api_communities_create_test_validbody",
-      "confidence_score": 1.0
+      "target": "api_communities_create_test_validbody"
     },
     {
       "relation": "imports_from",
@@ -5609,9 +5916,9 @@
       "source_file": "tests/api/communities-create.test.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_communities_create_test",
-      "target": "helpers_supabase_mock",
-      "confidence_score": 1.0
+      "target": "helpers_supabase_mock"
     },
     {
       "relation": "imports",
@@ -5620,9 +5927,9 @@
       "source_file": "tests/api/communities-create.test.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_communities_create_test",
-      "target": "helpers_supabase_mock_createsupabasemock",
-      "confidence_score": 1.0
+      "target": "helpers_supabase_mock_createsupabasemock"
     },
     {
       "relation": "calls",
@@ -5631,9 +5938,9 @@
       "source_file": "tests/api/communities-create.test.ts",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_communities_create_test_setupauth",
-      "target": "helpers_supabase_mock_createsupabasemock",
-      "confidence_score": 1.0
+      "target": "helpers_supabase_mock_createsupabasemock"
     },
     {
       "relation": "contains",
@@ -5642,7 +5949,47 @@
       "source_location": "L62",
       "weight": 1.0,
       "source": "api_webhook_test",
-      "target": "api_webhook_test_makewebhookrequest",
+      "target": "api_webhook_test_makerequest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/api/webhook.test.ts",
+      "source_location": "L62",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "api_webhook_test",
+      "target": "api_webhook_test_makewebhookrequest"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/api/webhook.test.ts",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "api_webhook_test",
+      "target": "api_webhook_test_mockcommunity",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/api/webhook.test.ts",
+      "source_location": "L54",
+      "weight": 1.0,
+      "source": "api_webhook_test",
+      "target": "api_webhook_test_mockmember",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/api/webhook.test.ts",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "api_webhook_test",
+      "target": "api_webhook_test_mockplan",
       "confidence_score": 1.0
     },
     {
@@ -5652,9 +5999,9 @@
       "source_file": "tests/api/webhook.test.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_webhook_test",
-      "target": "helpers_supabase_mock",
-      "confidence_score": 1.0
+      "target": "helpers_supabase_mock"
     },
     {
       "relation": "imports",
@@ -5663,9 +6010,9 @@
       "source_file": "tests/api/webhook.test.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_webhook_test",
-      "target": "helpers_supabase_mock_createsupabasemock",
-      "confidence_score": 1.0
+      "target": "helpers_supabase_mock_createsupabasemock"
     },
     {
       "relation": "contains",
@@ -5673,9 +6020,9 @@
       "source_file": "tests/helpers/supabase-mock.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "helpers_supabase_mock",
-      "target": "helpers_supabase_mock_createsupabasemock",
-      "confidence_score": 1.0
+      "target": "helpers_supabase_mock_createsupabasemock"
     },
     {
       "relation": "contains",
@@ -6620,5 +6967,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "95ec32cb81b9f3e9f8c70da5bd287109bffd5e09"
+  "built_at_commit": "3973034e234392854a0894192a2cfe849e32aa48"
 }

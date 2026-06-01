@@ -1,7 +1,7 @@
 {
   "C:\\Users\\gguery\\Documents\\perso\\Klubr\\app\\api\\ai\\churn-score\\route.ts": {
-    "mtime": 1780297696.5016735,
-    "ast_hash": "d30059ffcb5758f98c4d4d9d05466269",
+    "mtime": 1780301280.123681,
+    "ast_hash": "de9846c85358e66102c3907e7c20901f",
     "semantic_hash": ""
   },
   "C:\\Users\\gguery\\Documents\\perso\\Klubr\\app\\api\\ai\\weekly-summary\\route.ts": {
@@ -45,13 +45,13 @@
     "semantic_hash": ""
   },
   "C:\\Users\\gguery\\Documents\\perso\\Klubr\\app\\api\\tax\\report\\route.ts": {
-    "mtime": 1779969568.70332,
-    "ast_hash": "c7d05a088cb81d8b2acc7260a4ce9bde",
+    "mtime": 1780305451.9178524,
+    "ast_hash": "3e79490878dd4cf961fc71c132bd0774",
     "semantic_hash": ""
   },
   "C:\\Users\\gguery\\Documents\\perso\\Klubr\\app\\api\\webhooks\\stripe\\route.ts": {
-    "mtime": 1780297696.5229528,
-    "ast_hash": "a491cce70f5dfa3418f7d88a200ec7ea",
+    "mtime": 1780304107.062321,
+    "ast_hash": "3f0dfe2fdc2549724c13186def14dbeb",
     "semantic_hash": ""
   },
   "C:\\Users\\gguery\\Documents\\perso\\Klubr\\app\\dashboard\\communities\\new\\page.tsx": {
@@ -70,8 +70,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\gguery\\Documents\\perso\\Klubr\\app\\dashboard\\members\\page.tsx": {
-    "mtime": 1780297696.5398738,
-    "ast_hash": "1a8b42b4aa0625837ab07646bc48a5c7",
+    "mtime": 1780304112.3388362,
+    "ast_hash": "9410a14ea0a8c7807dfe23a11a8d6942",
     "semantic_hash": ""
   },
   "C:\\Users\\gguery\\Documents\\perso\\Klubr\\app\\dashboard\\page.tsx": {
@@ -100,8 +100,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\gguery\\Documents\\perso\\Klubr\\app\\member\\[referral_code]\\page.tsx": {
-    "mtime": 1780297696.5574636,
-    "ast_hash": "592542f9d7b37dc0f45e73f0b6e80e1a",
+    "mtime": 1780304116.571936,
+    "ast_hash": "8df8a8383352d154466f4acca2e25c60",
     "semantic_hash": ""
   },
   "C:\\Users\\gguery\\Documents\\perso\\Klubr\\app\\page.tsx": {
@@ -110,8 +110,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\gguery\\Documents\\perso\\Klubr\\app\\pay\\[slug]\\page.tsx": {
-    "mtime": 1780297696.5642698,
-    "ast_hash": "a0e7d6a2a5934bb56ab4e80114eeef29",
+    "mtime": 1780304125.81011,
+    "ast_hash": "90f6f8b0a8c46dffefbdff9f071e9a5c",
     "semantic_hash": ""
   },
   "C:\\Users\\gguery\\Documents\\perso\\Klubr\\app\\register\\page.tsx": {
@@ -125,8 +125,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\gguery\\Documents\\perso\\Klubr\\components\\pay-page\\pay-page-client.tsx": {
-    "mtime": 1779969482.1222677,
-    "ast_hash": "9ad3e79d4f62a1130a2756922a5bfd9c",
+    "mtime": 1780304682.3211045,
+    "ast_hash": "a1205f077f3e59087a0c5d86a3bfe33c",
     "semantic_hash": ""
   },
   "C:\\Users\\gguery\\Documents\\perso\\Klubr\\components\\sidebar.tsx": {
@@ -160,18 +160,18 @@
     "semantic_hash": ""
   },
   "C:\\Users\\gguery\\Documents\\perso\\Klubr\\lib\\resend.ts": {
-    "mtime": 1779969653.4346035,
-    "ast_hash": "a478f6eb478c83359348c7713885f582",
+    "mtime": 1780305020.5623653,
+    "ast_hash": "d6bbd90ad043f94e675628352cf107d3",
     "semantic_hash": ""
   },
   "C:\\Users\\gguery\\Documents\\perso\\Klubr\\lib\\stripe.ts": {
-    "mtime": 1779969689.003405,
-    "ast_hash": "27b2a4726cbe17b1e0dcefa001ab7715",
+    "mtime": 1780305439.6067123,
+    "ast_hash": "61e15a3921da7089f2d07d73f692d26b",
     "semantic_hash": ""
   },
   "C:\\Users\\gguery\\Documents\\perso\\Klubr\\lib\\supabase-server.ts": {
-    "mtime": 1780297696.5729735,
-    "ast_hash": "edc02247220e2749488372610e4d12bf",
+    "mtime": 1780304666.1720965,
+    "ast_hash": "a2d053ccf11a61ef219a5aa0a219003f",
     "semantic_hash": ""
   },
   "C:\\Users\\gguery\\Documents\\perso\\Klubr\\lib\\supabase.ts": {
@@ -200,8 +200,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\gguery\\Documents\\perso\\Klubr\\package.json": {
-    "mtime": 1780299670.5393107,
-    "ast_hash": "c365e6563b8d844cee7e8f56ddc61e3f",
+    "mtime": 1780301752.8787673,
+    "ast_hash": "9ad65709882458e3fdb884ca2c66ddd7",
     "semantic_hash": ""
   },
   "C:\\Users\\gguery\\Documents\\perso\\Klubr\\postcss.config.mjs": {
@@ -230,8 +230,8 @@
     "semantic_hash": ""
   },
   "C:\\Users\\gguery\\Documents\\perso\\Klubr\\types\\database.ts": {
-    "mtime": 1779969447.1799867,
-    "ast_hash": "4ad5b24b14595a261eb40013311c0dda",
+    "mtime": 1780302307.3418727,
+    "ast_hash": "b52b81ddfdbf274e4c538e8ae13e057b",
     "semantic_hash": ""
   },
   "C:\\Users\\gguery\\Documents\\perso\\Klubr\\vercel.json": {
@@ -260,18 +260,18 @@
     "semantic_hash": ""
   },
   "C:\\Users\\gguery\\Documents\\perso\\Klubr\\tests\\api\\checkout.test.ts": {
-    "mtime": 1780299743.638217,
-    "ast_hash": "3221d53ef7c51b095902408db11c1dfa",
+    "mtime": 1780302362.5569308,
+    "ast_hash": "864857129791c14a17ed447aec4d2961",
     "semantic_hash": ""
   },
   "C:\\Users\\gguery\\Documents\\perso\\Klubr\\tests\\api\\communities-create.test.ts": {
-    "mtime": 1780299800.971838,
-    "ast_hash": "f449c9ee69a6215be2d51df54325ffc4",
+    "mtime": 1780302381.6854353,
+    "ast_hash": "cef754c77cf5ff8c6d08365463f43c21",
     "semantic_hash": ""
   },
   "C:\\Users\\gguery\\Documents\\perso\\Klubr\\tests\\api\\webhook.test.ts": {
-    "mtime": 1780299779.9126458,
-    "ast_hash": "f4a5742fa67a5e6d472fd885c0c93aaf",
+    "mtime": 1780302372.7122364,
+    "ast_hash": "738a5c932b2b746e9d2599e4642cd402",
     "semantic_hash": ""
   },
   "C:\\Users\\gguery\\Documents\\perso\\Klubr\\tests\\helpers\\supabase-mock.ts": {
@@ -290,13 +290,18 @@
     "semantic_hash": ""
   },
   "C:\\Users\\gguery\\Documents\\perso\\Klubr\\vitest.config.ts": {
-    "mtime": 1780299680.3319912,
-    "ast_hash": "e0e080c9edb2044f21655230a32f06e6",
+    "mtime": 1780300406.8166552,
+    "ast_hash": "9bbe583e79f1fc53c7854d65ed7933b0",
     "semantic_hash": ""
   },
   "C:\\Users\\gguery\\Documents\\perso\\Klubr\\.github\\workflows\\ci.yml": {
-    "mtime": 1780299819.3569033,
-    "ast_hash": "1e84871b906927e665c1d26dacb4b894",
+    "mtime": 1780305683.060589,
+    "ast_hash": "31671fbbdd14f93cbbfae63044044484",
+    "semantic_hash": ""
+  },
+  "C:\\Users\\gguery\\Documents\\perso\\Klubr\\.eslintrc.json": {
+    "mtime": 1780301921.8276734,
+    "ast_hash": "1b8a76c76cc7f277fc6d167c595ab570",
     "semantic_hash": ""
   }
 }

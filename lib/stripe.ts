@@ -1,9 +1,16 @@
 import Stripe from 'stripe'
 
-export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2025-08-27.basil',
-  typescript: true,
-})
+// Lazy init — avoids throwing at module load time during `next build` when env vars aren't set
+let _stripe: Stripe | null = null
+export function getStripe(): Stripe {
+  if (!_stripe) {
+    _stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+      apiVersion: '2025-08-27.basil',
+      typescript: true,
+    })
+  }
+  return _stripe
+}
 
 export function calculateFees(amount: number, commissionRate: number, affiliateRate = 0) {
   const platformFee = Math.round(amount * commissionRate * 100) / 100
@@ -13,7 +20,7 @@ export function calculateFees(amount: number, commissionRate: number, affiliateR
 }
 
 export async function createConnectAccount(email: string) {
-  return stripe.accounts.create({
+  return getStripe().accounts.create({
     type: 'express',
     country: 'FR',
     email,
@@ -29,7 +36,7 @@ export async function createConnectAccount(email: string) {
 }
 
 export async function createOnboardingLink(accountId: string, baseUrl: string) {
-  return stripe.accountLinks.create({
+  return getStripe().accountLinks.create({
     account: accountId,
     refresh_url: `${baseUrl}/dashboard/settings?stripe=refresh`,
     return_url: `${baseUrl}/dashboard/settings?stripe=success`,
@@ -43,6 +50,7 @@ export async function createStripePrice(
   interval: 'month' | 'year' | null,
   productName: string
 ) {
+  const stripe = getStripe()
   const product = await stripe.products.create({ name: productName })
 
   if (!interval) {
@@ -80,7 +88,7 @@ export async function createCheckoutSession({
   referralCode?: string
   baseUrl: string
 }) {
-  return stripe.checkout.sessions.create(
+  return getStripe().checkout.sessions.create(
     {
       mode: 'subscription',
       payment_method_types: ['card'],
@@ -109,9 +117,10 @@ export async function createCheckoutSession({
 }
 
 export async function extendSubscriptionByDays(subscriptionId: string, extraDays: number) {
+  const stripe = getStripe()
   const subscription = await stripe.subscriptions.retrieve(subscriptionId)
   const now = Math.floor(Date.now() / 1000)
-  // current_period_end removed from Subscription type in Stripe API 2025-08-27.basil
+  // current_period_end removed from Stripe.Subscription type in API 2025-08-27.basil
   const currentEnd = (subscription as unknown as { current_period_end?: number }).current_period_end ?? now
   const anchor = currentEnd > now ? currentEnd : now
   const trialEnd = anchor + extraDays * 24 * 60 * 60
@@ -123,7 +132,7 @@ export async function extendSubscriptionByDays(subscriptionId: string, extraDays
 }
 
 export function constructWebhookEvent(payload: string, signature: string) {
-  return stripe.webhooks.constructEvent(
+  return getStripe().webhooks.constructEvent(
     payload,
     signature,
     process.env.STRIPE_WEBHOOK_SECRET!

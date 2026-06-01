@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import Stripe from 'stripe'
-import { stripe } from '@/lib/stripe'
+import { getStripe } from '@/lib/stripe'
 
 const QuerySchema = z.object({
   start: z.string().datetime(),
@@ -17,7 +17,7 @@ export async function GET(req: NextRequest) {
     })
 
     // stripe.tax.transactions.list typing changed in 2025-08-27.basil
-    const transactions = await (stripe.tax.transactions as unknown as { list: (p: object) => Promise<{ data: Stripe.Tax.Transaction[] }> }).list({
+    const transactions = await (getStripe().tax.transactions as unknown as { list: (p: object) => Promise<{ data: Stripe.Tax.Transaction[] }> }).list({
       created: {
         gte: Math.floor(new Date(parsed.start).getTime() / 1000),
         lte: Math.floor(new Date(parsed.end).getTime() / 1000),

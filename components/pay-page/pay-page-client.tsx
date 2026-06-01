@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -68,10 +69,12 @@ export function PayPageClient({
       <div className="mx-auto max-w-2xl px-4 py-16">
         <div className="mb-12 text-center">
           {community.cover_image_url && (
-            <img
+            <Image
               src={community.cover_image_url}
               alt={community.name}
-              className="mx-auto mb-4 h-20 w-20 rounded-2xl object-cover shadow-md"
+              width={80}
+              height={80}
+              className="mx-auto mb-4 rounded-2xl object-cover shadow-md"
             />
           )}
           <Badge variant="secondary" className="mb-3">

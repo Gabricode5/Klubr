@@ -18,8 +18,9 @@ export async function createServerSupabaseClient() {
         },
         setAll(cookiesToSet: { name: string; value: string; options: object }[]) {
           try {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            cookiesToSet.forEach(({ name, value, options }) => cookieStore.set(name, value, options as any))
+            // options is typed as object to avoid importing Next.js internal cookie types
+            cookiesToSet.forEach(({ name, value, options }) =>
+              cookieStore.set(name, value, options as Parameters<typeof cookieStore.set>[2]))
           } catch {
             // No-op in Server Components where setting cookies is unavailable.
           }

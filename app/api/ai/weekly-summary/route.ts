@@ -2,8 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { askClaudeJson } from '@/lib/anthropic'
 import { sendRawEmail } from '@/lib/resend'
 import { createAdminClient } from '@/lib/supabase-server'
-
-type WeeklyEmail = { subject: string; html: string }
+import type { WeeklyEmail } from '@/types/api'
 
 export async function POST(req: NextRequest) {
   try {

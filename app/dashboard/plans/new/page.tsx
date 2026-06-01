@@ -27,7 +27,7 @@ export default function NewPlanPage() {
     supabase.auth.getUser().then(({ data: { user } }) => {
       if (user) {
         setUserId(user.id)
-        fetch(`/api/creator/communities?creatorId=${user.id}`)
+        fetch(`/api/creator/communities`)
           .then((r) => r.json())
           .then((payload: { communities?: CommunityOption[] }) =>
             setCommunities(payload.communities ?? [])

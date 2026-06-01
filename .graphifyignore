@@ -1,0 +1,5 @@
+graphify-out/
+docs/
+*.md
+node_modules/
+.next/

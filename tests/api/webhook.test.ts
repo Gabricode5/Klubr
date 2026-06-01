@@ -121,7 +121,7 @@ describe('POST /api/webhooks/stripe', () => {
           plan_communities: { data: [], error: null },
           transactions: { data: {}, error: null },
           member_community_access: { data: {}, error: null },
-        }) as ReturnType<typeof createAdminClient>
+        }) as unknown as ReturnType<typeof createAdminClient>
       )
 
       const res = await POST(makeRequest('{}', 'valid-sig'))
@@ -146,7 +146,7 @@ describe('POST /api/webhooks/stripe', () => {
         createSupabaseMock({
           members: { data: memberWithCommunity, error: null },
           member_community_access: { data: [], error: null },
-        }) as ReturnType<typeof createAdminClient>
+        }) as unknown as ReturnType<typeof createAdminClient>
       )
 
       const res = await POST(makeRequest('{}', 'valid-sig'))
@@ -169,7 +169,7 @@ describe('POST /api/webhooks/stripe', () => {
       vi.mocked(createAdminClient).mockReturnValue(
         createSupabaseMock({
           members: { data: memberWithCommunity, error: null },
-        }) as ReturnType<typeof createAdminClient>
+        }) as unknown as ReturnType<typeof createAdminClient>
       )
 
       const res = await POST(makeRequest('{}', 'valid-sig'))
@@ -190,13 +190,13 @@ describe('POST /api/webhooks/stripe', () => {
             status: 'active',
             current_period_start: 1700000000,
             current_period_end: 1702592000,
-          } as Stripe.Subscription,
+          } as unknown as Stripe.Subscription,
         },
       } as Stripe.Event
 
       vi.mocked(constructWebhookEvent).mockReturnValue(fakeEvent)
       vi.mocked(createAdminClient).mockReturnValue(
-        createSupabaseMock() as ReturnType<typeof createAdminClient>
+        createSupabaseMock() as unknown as ReturnType<typeof createAdminClient>
       )
 
       const res = await POST(makeRequest('{}', 'valid-sig'))

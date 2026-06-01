@@ -1,7 +1,7 @@
 import Stripe from 'stripe'
 
 export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2024-12-18.acacia',
+  apiVersion: '2025-08-27.basil',
   typescript: true,
 })
 
@@ -68,6 +68,7 @@ export async function createCheckoutSession({
   platformFeePercent,
   communitySlug,
   affiliateCode,
+  referralCode,
   baseUrl,
 }: {
   planId: string
@@ -110,7 +111,8 @@ export async function createCheckoutSession({
 export async function extendSubscriptionByDays(subscriptionId: string, extraDays: number) {
   const subscription = await stripe.subscriptions.retrieve(subscriptionId)
   const now = Math.floor(Date.now() / 1000)
-  const currentEnd = subscription.current_period_end ?? now
+  // current_period_end removed from Subscription type in Stripe API 2025-08-27.basil
+  const currentEnd = (subscription as unknown as { current_period_end?: number }).current_period_end ?? now
   const anchor = currentEnd > now ? currentEnd : now
   const trialEnd = anchor + extraDays * 24 * 60 * 60
 

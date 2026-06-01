@@ -11,6 +11,7 @@ export interface Creator {
   plan: Plan
   commission_rate: number
   business_plan_end: string | null
+  referral_reward_days: number
   created_at: string
   updated_at: string
 }
@@ -114,17 +115,63 @@ export interface CreatorSettings extends Creator {
   referral_reward_days: number
 }
 
+// supabase-js v2 requires Relationships + Views/Functions/Enums/CompositeTypes
+// in the Database type to properly infer query result types.
 export type Database = {
   public: {
     Tables: {
-      creators: { Row: Creator; Insert: Partial<Creator>; Update: Partial<Creator> }
-      communities: { Row: Community; Insert: Partial<Community>; Update: Partial<Community> }
-      subscription_plans: { Row: SubscriptionPlan; Insert: Partial<SubscriptionPlan>; Update: Partial<SubscriptionPlan> }
-      plan_communities: { Row: PlanCommunity; Insert: Partial<PlanCommunity>; Update: Partial<PlanCommunity> }
-      affiliates: { Row: Affiliate; Insert: Partial<Affiliate>; Update: Partial<Affiliate> }
-      members: { Row: Member; Insert: Partial<Member>; Update: Partial<Member> }
-      member_community_access: { Row: MemberCommunityAccess; Insert: Partial<MemberCommunityAccess>; Update: Partial<MemberCommunityAccess> }
-      transactions: { Row: Transaction; Insert: Partial<Transaction>; Update: Partial<Transaction> }
+      creators: {
+        Row: Creator
+        Insert: Partial<Creator>
+        Update: Partial<Creator>
+        Relationships: []
+      }
+      communities: {
+        Row: Community
+        Insert: Partial<Community>
+        Update: Partial<Community>
+        Relationships: []
+      }
+      subscription_plans: {
+        Row: SubscriptionPlan
+        Insert: Partial<SubscriptionPlan>
+        Update: Partial<SubscriptionPlan>
+        Relationships: []
+      }
+      plan_communities: {
+        Row: PlanCommunity
+        Insert: Partial<PlanCommunity>
+        Update: Partial<PlanCommunity>
+        Relationships: []
+      }
+      affiliates: {
+        Row: Affiliate
+        Insert: Partial<Affiliate>
+        Update: Partial<Affiliate>
+        Relationships: []
+      }
+      members: {
+        Row: Member
+        Insert: Partial<Member>
+        Update: Partial<Member>
+        Relationships: []
+      }
+      member_community_access: {
+        Row: MemberCommunityAccess
+        Insert: Partial<MemberCommunityAccess>
+        Update: Partial<MemberCommunityAccess>
+        Relationships: []
+      }
+      transactions: {
+        Row: Transaction
+        Insert: Partial<Transaction>
+        Update: Partial<Transaction>
+        Relationships: []
+      }
     }
+    Views: { [_ in never]: never }
+    Functions: { [_ in never]: never }
+    Enums: { [_ in never]: never }
+    CompositeTypes: { [_ in never]: never }
   }
 }

@@ -67,7 +67,7 @@ describe('POST /api/subscriptions/checkout', () => {
     vi.mocked(createAdminClient).mockReturnValue(
       createSupabaseMock({
         subscription_plans: { data: null, error: null },
-      }) as ReturnType<typeof createAdminClient>
+      }) as unknown as ReturnType<typeof createAdminClient>
     )
 
     const req = makeRequest({
@@ -91,7 +91,7 @@ describe('POST /api/subscriptions/checkout', () => {
     vi.mocked(createAdminClient).mockReturnValue(
       createSupabaseMock({
         subscription_plans: { data: planSansStripe, error: null },
-      }) as ReturnType<typeof createAdminClient>
+      }) as unknown as ReturnType<typeof createAdminClient>
     )
 
     const req = makeRequest({
@@ -109,7 +109,7 @@ describe('POST /api/subscriptions/checkout', () => {
     vi.mocked(createAdminClient).mockReturnValue(
       createSupabaseMock({
         subscription_plans: { data: planSansPrix, error: null },
-      }) as ReturnType<typeof createAdminClient>
+      }) as unknown as ReturnType<typeof createAdminClient>
     )
 
     const req = makeRequest({
@@ -126,7 +126,7 @@ describe('POST /api/subscriptions/checkout', () => {
     vi.mocked(createAdminClient).mockReturnValue(
       createSupabaseMock({
         subscription_plans: { data: mockPlan, error: null },
-      }) as ReturnType<typeof createAdminClient>
+      }) as unknown as ReturnType<typeof createAdminClient>
     )
     vi.mocked(createCheckoutSession).mockResolvedValue(
       { url: 'https://checkout.stripe.com/pay/fake' } as Awaited<ReturnType<typeof createCheckoutSession>>

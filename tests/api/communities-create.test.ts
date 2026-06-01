@@ -32,7 +32,7 @@ function makeRequest(body: unknown): NextRequest {
 
 function setupAuth(user: typeof mockUser | null) {
   vi.mocked(createServerSupabaseClient).mockResolvedValue(
-    createSupabaseMock({ '__user__': user }) as Awaited<ReturnType<typeof createServerSupabaseClient>>
+    createSupabaseMock({ '__user__': user }) as unknown as Awaited<ReturnType<typeof createServerSupabaseClient>>
   )
 }
 
@@ -53,7 +53,7 @@ describe('POST /api/creator/communities/create', () => {
   it('retourne 400 si les champs obligatoires sont manquants', async () => {
     setupAuth(mockUser)
     vi.mocked(createAdminClient).mockReturnValue(
-      createSupabaseMock() as ReturnType<typeof createAdminClient>
+      createSupabaseMock() as unknown as ReturnType<typeof createAdminClient>
     )
 
     const res = await POST(makeRequest({ description: 'Sans nom ni slug ni platform' }))
@@ -68,7 +68,7 @@ describe('POST /api/creator/communities/create', () => {
       createSupabaseMock({
         creators: { data: {}, error: null },
         communities: { data: null, error: { code: '23505', message: 'duplicate key' } },
-      }) as ReturnType<typeof createAdminClient>
+      }) as unknown as ReturnType<typeof createAdminClient>
     )
 
     const res = await POST(makeRequest(validBody))
@@ -84,7 +84,7 @@ describe('POST /api/creator/communities/create', () => {
       createSupabaseMock({
         creators: { data: {}, error: null },
         communities: { data: createdCommunity, error: null },
-      }) as ReturnType<typeof createAdminClient>
+      }) as unknown as ReturnType<typeof createAdminClient>
     )
 
     const res = await POST(makeRequest(validBody))

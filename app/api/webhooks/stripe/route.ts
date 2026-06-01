@@ -276,7 +276,8 @@ export async function POST(req: NextRequest) {
 
       case 'invoice.payment_failed': {
         const invoice = event.data.object as Stripe.Invoice
-        const subscriptionId = invoice.subscription as string
+        // invoice.subscription removed from Stripe types in 2025-08-27.basil
+        const subscriptionId = (invoice as unknown as { subscription?: string }).subscription ?? ''
 
         const { data: member } = await supabase
           .from('members')
@@ -306,12 +307,21 @@ export async function POST(req: NextRequest) {
       case 'customer.subscription.updated': {
         const subscription = event.data.object as Stripe.Subscription
 
+        // current_period_start/end removed from Stripe.Subscription in 2025-08-27.basil
+        const sub = subscription as unknown as {
+          current_period_start?: number
+          current_period_end?: number
+        }
         await supabase
           .from('members')
           .update({
             status: subscription.status as MemberDbStatus,
-            current_period_start: new Date(subscription.current_period_start * 1000).toISOString(),
-            current_period_end: new Date(subscription.current_period_end * 1000).toISOString(),
+            current_period_start: sub.current_period_start
+              ? new Date(sub.current_period_start * 1000).toISOString()
+              : null,
+            current_period_end: sub.current_period_end
+              ? new Date(sub.current_period_end * 1000).toISOString()
+              : null,
           })
           .eq('stripe_subscription_id', subscription.id)
 

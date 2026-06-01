@@ -70,10 +70,10 @@ export default async function MembersPage() {
                 <tr key={member.id} className="hover:bg-slate-50">
                   <td className="px-5 py-3.5 font-medium text-slate-800">{member.email}</td>
                   <td className="px-5 py-3.5 text-slate-600">
-                    {(member.communities as { name: string } | null)?.name ?? '—'}
+                    {(member.communities as unknown as { name: string } | null)?.name ?? '—'}
                   </td>
                   <td className="px-5 py-3.5 text-slate-600">
-                    {(member.subscription_plans as { name: string } | null)?.name ?? '—'}
+                    {(member.subscription_plans as unknown as { name: string } | null)?.name ?? '—'}
                   </td>
                   <td className="px-5 py-3.5"><StatusBadge status={member.status} /></td>
                   <td className="px-5 py-3.5"><RiskBadge score={member.churn_score} /></td>

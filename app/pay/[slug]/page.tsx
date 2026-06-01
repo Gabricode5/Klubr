@@ -62,7 +62,7 @@ export default async function PayPage({ params, searchParams }: PageProps) {
 
     platformsByPlan = (planCommunities ?? []).reduce<Record<string, string[]>>((acc, entry) => {
       const planId = (entry as { plan_id: string }).plan_id
-      const platform = (entry as { communities: { platform: string } }).communities?.platform
+      const platform = (entry as unknown as { communities: { platform: string } }).communities?.platform
       if (!platform) return acc
       const current = acc[planId] ?? []
       acc[planId] = current.includes(platform) ? current : [...current, platform]

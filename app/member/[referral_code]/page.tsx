@@ -17,7 +17,7 @@ export default async function MemberReferralPage({ params }: PageProps) {
 
   if (!member?.referral_code) notFound()
 
-  const community = member.communities as { slug: string; name: string } | null
+  const community = member.communities as unknown as { slug: string; name: string } | null
   const shareUrl = `${process.env.NEXT_PUBLIC_APP_URL}/pay/${community?.slug}?r=${member.referral_code}`
 
   return (

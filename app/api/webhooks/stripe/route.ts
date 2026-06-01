@@ -242,7 +242,7 @@ export async function POST(req: NextRequest) {
 
         if (member.platform_user_id) {
           for (const linkedCommunity of communitiesToRevoke) {
-            const scoped = linkedCommunity as {
+            const scoped = linkedCommunity as unknown as {
               platform: 'telegram' | 'discord' | 'whatsapp'
               platform_id: string
               bot_token: string | null

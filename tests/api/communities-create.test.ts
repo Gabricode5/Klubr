@@ -40,7 +40,7 @@ beforeEach(() => {
 })
 
 describe('POST /api/creator/communities/create', () => {
-  it('retourne 401 si l'utilisateur n'est pas authentifié', async () => {
+  it("retourne 401 si l'utilisateur n'est pas authentifié", async () => {
     setupAuth(null)
 
     const res = await POST(makeRequest(validBody))

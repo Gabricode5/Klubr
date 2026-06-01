@@ -78,7 +78,7 @@ describe('POST /api/subscriptions/checkout', () => {
     expect(json.error).toBe('Plan introuvable')
   })
 
-  it('retourne 400 si le créateur n'a pas configuré Stripe', async () => {
+  it("retourne 400 si le créateur n'a pas configuré Stripe", async () => {
     const planSansStripe = {
       ...mockPlan,
       communities: {

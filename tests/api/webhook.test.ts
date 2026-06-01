@@ -97,7 +97,7 @@ describe('POST /api/webhooks/stripe', () => {
   })
 
   describe('checkout.session.completed', () => {
-    it('crée le membre, la transaction et envoie l'email de bienvenue', async () => {
+    it("crée le membre, la transaction et envoie l'email de bienvenue", async () => {
       const fakeEvent = {
         type: 'checkout.session.completed',
         data: {
@@ -136,7 +136,7 @@ describe('POST /api/webhooks/stripe', () => {
   })
 
   describe('customer.subscription.deleted', () => {
-    it('annule le membre et envoie l'email d'expiration', async () => {
+    it("annule le membre et envoie l'email d'expiration", async () => {
       const memberWithCommunity = {
         ...mockMember,
         communities: mockCommunity,
@@ -166,7 +166,7 @@ describe('POST /api/webhooks/stripe', () => {
   })
 
   describe('invoice.payment_failed', () => {
-    it('passe le membre en past_due et envoie l'email d'échec', async () => {
+    it("passe le membre en past_due et envoie l'email d'échec", async () => {
       const memberWithCommunity = { ...mockMember, communities: mockCommunity }
       const fakeEvent = {
         type: 'invoice.payment_failed',

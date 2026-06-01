@@ -1,6 +1,11 @@
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+// Lazy init — avoids throwing at module load time during `next build` when env vars aren't set
+let _resend: Resend | null = null
+function getResend() {
+  if (!_resend) _resend = new Resend(process.env.RESEND_API_KEY!)
+  return _resend
+}
 
 type EmailTemplate = 'welcome' | 'cancelled' | 'payment_failed'
 
@@ -49,7 +54,7 @@ const templates: Record<EmailTemplate, (data: Record<string, string>) => string>
 
 export async function sendEmail({ to, subject, template, data }: EmailPayload) {
   try {
-    await resend.emails.send({
+    await getResend().emails.send({
       from: 'CommunityPay <noreply@communitypay.fr>',
       to,
       subject,
@@ -70,7 +75,7 @@ export async function sendRawEmail({
   html: string
 }) {
   try {
-    await resend.emails.send({
+    await getResend().emails.send({
       from: 'CommunityPay <noreply@communitypay.fr>',
       to,
       subject,
